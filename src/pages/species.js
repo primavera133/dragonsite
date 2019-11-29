@@ -9,7 +9,7 @@ export default ({ data }) => {
       <ul>
         {data.dragonflies.species.map(
           ({ items_id, scientific_name }, index) => (
-            <ListLink to={`/species/${items_id}`} key={items_id}>
+            <ListLink to={`/species/${scientific_name}`} key={items_id}>
               {scientific_name}
             </ListLink>
           )
