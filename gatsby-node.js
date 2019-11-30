@@ -6,6 +6,7 @@ exports.createPages = async ({ actions, graphql }) => {
         species {
           items_id
           scientific_name
+          author_citation
           behaviour
           description
           distribution
