@@ -9,6 +9,9 @@ const Li = styled.li`
 const LiInline = styled(Li)`
   display: inline-block;
   margin-right: 1rem;
+  :last-child {
+    margin-right: 0;
+  }
 `
 
 const ListLink = props => {

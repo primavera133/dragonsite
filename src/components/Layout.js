@@ -30,7 +30,7 @@ export default ({ left, right, children }) => {
 
     @media only screen and (min-width: 500px) {
       grid-template-columns: 33% auto;
-      grid-template-rows: 100px auto 1fr 100px;
+      grid-template-rows: auto auto 1fr 100px;
       grid-template-areas:
         'header   header'
         'first-column  main-column'
@@ -42,7 +42,7 @@ export default ({ left, right, children }) => {
     @media only screen and (min-width: 1024px) {
       grid-gap: 20px;
       grid-template-columns: 25% auto 25%;
-      grid-template-rows: 100px auto 100px;
+      grid-template-rows: auto auto 100px;
       grid-template-areas:
         'header  header  header'
         'first-column main-column third-column'
@@ -62,27 +62,82 @@ export default ({ left, right, children }) => {
     flex-flow: column;
     justify-content: space-between;
 
+    border-bottom: solid 0.5rem #deded2;
+
+    padding: 1rem 2rem;
+    margin: -1rem -1rem 1.2rem;
+
     @media all and (min-width: 768px) {
       flex-flow: row;
+      padding: 2rem 1rem 2rem 3rem;
     }
   `
 
   const HeaderLink = styled(Link)`
     text-shadow: none;
     background-image: none;
-    color: hsla(0, 0%, 0%, 0.9);
+    color: #5c4031;
   `
 
   const H3 = styled.h3`
+    color: #5c4031;
     margin: 0;
     line-height: 1.8;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      max-width: 48px;
+      display: inline;
+      vertical-align: middle;
+      margin: 0 0.3rem 0 0;
+    }
+
+    @media all and (min-width: 768px) {
+      display: block;
+      font-size: 1.5rem;
+      img {
+        max-width: 58px;
+        margin: 0 1rem 0 0;
+      }
+    }
+
+    @media all and (min-width: 1024px) {
+      font-size: 2.5rem;
+      img {
+        max-width: 78px;
+        margin: 0 1rem 0 0;
+      }
+    }
   `
 
-  const Menu = styled.nav``
+  const Menu = styled.nav`
+    text-align: right;
+    @media all and (min-width: 768px) {
+      margin-top: -1rem;
+    }
+    @media all and (min-width: 1456px) {
+      margin-top: 0;
+    }
+  `
 
   const MenuList = styled.ul`
     list-style: none;
     margin: 0;
+    li {
+      margin-bottom: 0;
+    }
+    a {
+      color: #5c4031;
+
+      text-shadow: none;
+      font-family: 'Varela Round', sans-serif;
+      text-decoration: none;
+      background-image: none;
+      :hover {
+        text-decoration: underline;
+      }
+    }
   `
   const FirstColumn = styled.aside`
     grid-area: first-column;
@@ -102,6 +157,7 @@ export default ({ left, right, children }) => {
     <Wrapper>
       <Header>
         <H3>
+          <img src='/libellula-bw.png' alt='libellula' />
           <HeaderLink to={'/'}>{data.site.siteMetadata.title}</HeaderLink>
         </H3>
         <Menu>

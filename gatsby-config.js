@@ -7,7 +7,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `European dragonflies`
+    title: `Dragonflies of Europe`
   },
   plugins: [
     {
