@@ -30,6 +30,7 @@ export default ({ left, right, children }) => {
 
     @media only screen and (min-width: 500px) {
       grid-template-columns: 33% auto;
+      grid-template-rows: 100px auto 1fr 100px;
       grid-template-areas:
         'header   header'
         'first-column  main-column'
@@ -41,6 +42,7 @@ export default ({ left, right, children }) => {
     @media only screen and (min-width: 1024px) {
       grid-gap: 20px;
       grid-template-columns: 25% auto 25%;
+      grid-template-rows: 100px auto 100px;
       grid-template-areas:
         'header  header  header'
         'first-column main-column third-column'
