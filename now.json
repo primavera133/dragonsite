@@ -1,7 +1,8 @@
 {
   "build": {
     "env": {
-      "AUTH_KEY": "@auth_key"
+      "AUTH_KEY": "@auth_key",
+      "GA_KEY": "ga_key"
     }
   }
 }
