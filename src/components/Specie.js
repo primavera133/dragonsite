@@ -8,10 +8,16 @@ import RedListStatus from './RedListStatus'
 import FlightPeriod from './FlightPeriod'
 import MediaLinks from './MediaLinks'
 import ReportLinks from './ReportLinks'
+import Search from './Search'
 
 export default ({ pageContext }) => {
   return (
     <Layout
+      head={
+        <>
+          <Search names={pageContext.names} />
+        </>
+      }
       left={
         <>
           <FlightPeriod pageContext={pageContext} />

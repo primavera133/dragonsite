@@ -3,8 +3,10 @@ import { useStaticQuery, Link, graphql } from 'gatsby'
 import ListLink from './ListLink'
 import styled from '@emotion/styled'
 import FooterContent from './FooterContent'
+import Helmet from 'react-helmet'
+import './layout.css'
 
-export default ({ left, right, children }) => {
+export default ({ head, left, right, children }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -69,7 +71,8 @@ export default ({ left, right, children }) => {
 
     @media all and (min-width: 768px) {
       flex-flow: row;
-      padding: 2rem 1rem 2rem 3rem;
+      padding: 1rem 1rem 2rem 3rem;
+      // padding: 2rem 1rem 2rem 3rem;
     }
   `
 
@@ -89,13 +92,13 @@ export default ({ left, right, children }) => {
     img {
       max-width: 48px;
       display: inline;
-      vertical-align: middle;
+      vertical-align: text-top;
       margin: 0 0.3rem 0 0;
     }
 
     @media all and (min-width: 768px) {
       display: block;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       img {
         max-width: 58px;
         margin: 0 1rem 0 0;
@@ -114,7 +117,7 @@ export default ({ left, right, children }) => {
   const Menu = styled.nav`
     text-align: right;
     @media all and (min-width: 768px) {
-      margin-top: -1rem;
+      margin-top: 0;
     }
     @media all and (min-width: 1456px) {
       margin-top: 0;
@@ -155,11 +158,21 @@ export default ({ left, right, children }) => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <link
+          rel='stylesheet'
+          href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
+        />
+      </Helmet>
       <Header>
-        <H3>
-          <img src='/libellula-bw.png' alt='libellula' />
-          <HeaderLink to={'/'}>{data.site.siteMetadata.title}</HeaderLink>
-        </H3>
+        <div>
+          <H3>
+            <img src='/libellula-bw.png' alt='libellula' />
+            <HeaderLink to={'/'}>{data.site.siteMetadata.title}</HeaderLink>
+          </H3>
+          {head}
+        </div>
+
         <Menu>
           <MenuList>
             <ListLink inline to='/'>

@@ -31,11 +31,21 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `)
+
+  const names = []
+  data.dragonflies.species.forEach(specie => {
+    names.push([specie.scientific_name, specie.scientific_name])
+    specie.local_names.forEach(ln => names.push([ln, specie.scientific_name]))
+  })
+
   data.dragonflies.species.forEach(context => {
     actions.createPage({
       path: `/species/${context.scientific_name}/`,
       component: path.resolve(`./src/components/Specie.js`),
-      context
+      context: {
+        names,
+        ...context
+      }
     })
   })
 }

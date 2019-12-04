@@ -1,9 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { getNamesList } from '../utils/getNamesList'
 import Layout from '../components/Layout'
+import Search from '../components/Search'
 
 export default ({ data }) => (
-  <Layout>
+  <Layout
+    head={
+      <>
+        <Search names={getNamesList(data.dragonflies.species)} />
+      </>
+    }
+  >
     <h1>About this site</h1>
     <p>
       This is a site about the dragonflies of Europe. The data for the site
@@ -42,6 +50,13 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    dragonflies {
+      species {
+        items_id
+        scientific_name
+        local_names
       }
     }
   }
