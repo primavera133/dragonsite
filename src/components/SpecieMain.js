@@ -32,11 +32,12 @@ const SpecieMainFigCap = styled.figcaption`
 `
 
 const getWidth = () => {
-  if (window.matchMedia('(max-width: 375px)').matches) {
-    return 375
-  } else if (window.matchMedia('(max-width: 425px)').matches) {
-    return 425
-  } else return 680
+  return 680
+  // if (window.matchMedia('(max-width: 375px)').matches) {
+  //   return 375
+  // } else if (window.matchMedia('(max-width: 425px)').matches) {
+  //   return 425
+  // } else return 680
 }
 
 export default ({ pageContext }) => {
