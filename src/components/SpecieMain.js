@@ -39,7 +39,8 @@ export default ({ pageContext }) => {
   }
 
   const cl = new cloudinary.Cloudinary({
-    cloud_name: images.cloud_name
+    cloud_name: images.cloud_name,
+    secure: true
   })
 
   const srcSets = [
