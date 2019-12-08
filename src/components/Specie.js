@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import SpecieNames from '../components/SpecieNames'
-import SpecieThumb from './SpecieThumb'
+import SpecieMain from './SpecieMain'
 import Distribution from './Distribution'
 import SimilarSpecies from './SimilarSpecies'
 import RedListStatus from './RedListStatus'
@@ -33,7 +33,7 @@ export default ({ pageContext }) => {
       }
     >
       <SpecieNames pageContext={pageContext} />
-      <SpecieThumb pageContext={pageContext} />
+      <SpecieMain pageContext={pageContext} />
       <h2>Description</h2>
       <p>{pageContext.description}</p>
       <h2>Behaviour</h2>

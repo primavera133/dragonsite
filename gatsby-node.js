@@ -12,6 +12,16 @@ exports.createPages = async ({ actions, graphql }) => {
           distribution
           flight_period
           habitat
+          images {
+            cloudName
+            all {
+              publicId
+              license
+              lic_url
+              by
+              url
+            }
+          }
           local_names
           red_list {
             EU27_endemic
