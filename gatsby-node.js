@@ -13,9 +13,9 @@ exports.createPages = async ({ actions, graphql }) => {
           flight_period
           habitat
           images {
-            cloudName
+            cloud_name
             all {
-              publicId
+              public_id
               license
               lic_url
               by

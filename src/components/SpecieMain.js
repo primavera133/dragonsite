@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
+import cloudinary from 'cloudinary-core'
 import License from './License'
 
 const SpecieMainPlaceholder = styled.div`
@@ -31,15 +31,6 @@ const SpecieMainFigCap = styled.figcaption`
   }
 `
 
-const getWidth = () => {
-  return 680
-  // if (window.matchMedia('(max-width: 375px)').matches) {
-  //   return 375
-  // } else if (window.matchMedia('(max-width: 425px)').matches) {
-  //   return 425
-  // } else return 680
-}
-
 export default ({ pageContext }) => {
   const { images } = pageContext
   const mainImage = images ? images.all[0] : null
@@ -47,18 +38,38 @@ export default ({ pageContext }) => {
     return <SpecieMainPlaceholder />
   }
 
+  const cl = new cloudinary.Cloudinary({
+    cloud_name: images.cloud_name
+  })
+
+  const srcSets = [
+    375,
+    509,
+    622,
+    717,
+    812,
+    899,
+    980,
+    1061,
+    1139,
+    1216,
+    1293,
+    1360
+  ]
+  const srcSet = srcSets
+    .map(
+      s => `${cl.url(mainImage.public_id, { width: s, crop: 'scale' })} ${s}w`
+    )
+    .join(',')
+
   return (
     <SpecieMain>
-      <CloudinaryContext cloudName={images.cloudName}>
-        <Image publicId={mainImage.publicId}>
-          <Transformation
-            crop='scale'
-            width={getWidth()}
-            dpr='auto'
-            responsive_placeholder='blank'
-          />
-        </Image>
-      </CloudinaryContext>
+      <img
+        sizes='(max-width: 1360px) 100vw, 1360px'
+        srcSet={srcSet}
+        src={`${cl.url(mainImage.public_id, { width: 1360, crop: 'scale' })}`}
+        alt={pageContext.scientific_name}
+      />
       <SpecieMainFigCap>
         {mainImage.url && (
           <>

@@ -91,6 +91,7 @@ export default ({ head, left, right, children }) => {
 
     img {
       max-width: 48px;
+      max-height: 51px;
       display: inline;
       vertical-align: text-top;
       margin: 0 0.3rem 0 0;
@@ -101,6 +102,7 @@ export default ({ head, left, right, children }) => {
       font-size: 1.7rem;
       img {
         max-width: 58px;
+        max-height: 62px;
         margin: 0 1rem 0 0;
       }
     }
@@ -109,6 +111,7 @@ export default ({ head, left, right, children }) => {
       font-size: 2.5rem;
       img {
         max-width: 78px;
+        max-height: 83px;
         margin: 0 1rem 0 0;
       }
     }
