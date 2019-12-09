@@ -34,6 +34,7 @@
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
+  padding: 2px 7px;
 }
 
 .react-autosuggest__container {
@@ -49,8 +50,8 @@
 .react-autosuggest__input {
   border: 0;
   width: 100%;
-  padding: 9px 5px 5px;
-  height: 20px;
+  padding: 0 5px 0;
+  height: 30px;
   outline: none;
   color: #9dbfaf;
 
