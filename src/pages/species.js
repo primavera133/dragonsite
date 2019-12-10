@@ -1,35 +1,46 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { getNamesList } from '../utils/getNamesList'
-import Layout from '../components/Layout'
-import ListLink from '../components/ListLink'
+import LayoutOne from '../components/LayoutOne'
 import Search from '../components/Search'
+import HexagonGrid from '../components/Hexagon/HexagonGrid'
 
 export default ({ data }) => {
   return (
-    <Layout
+    <LayoutOne
       head={
         <>
           <Search names={getNamesList(data.dragonflies.species)} />
         </>
       }
     >
-      <ul>
-        {data.dragonflies.species.map(
-          ({ items_id, scientific_name }, index) => (
-            <ListLink to={`/species/${scientific_name}`} key={items_id}>
-              {scientific_name}
-            </ListLink>
-          )
-        )}
-      </ul>
-    </Layout>
+      <HexagonGrid families={data.dragonflies.taxonomy.families} />
+    </LayoutOne>
   )
 }
 
 export const query = graphql`
   query {
     dragonflies {
+      taxonomy {
+        families {
+          family_name
+          generas {
+            genera_name
+            species {
+              items_id
+              scientific_name
+              local_names
+              images {
+                cloud_name
+                all {
+                  public_id
+                }
+              }
+            }
+          }
+        }
+      }
       species {
         items_id
         scientific_name
