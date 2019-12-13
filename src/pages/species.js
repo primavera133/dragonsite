@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { getNamesList } from '../utils/getNamesList'
 import LayoutOne from '../components/LayoutOne'
 import Search from '../components/Search'
-import HexagonGrid from '../components/Hexagon/HexagonGrid'
+import HexagonGrid from '../components/Hexagon/HexagonGrid2'
 
 export default ({ data }) => {
   return (
