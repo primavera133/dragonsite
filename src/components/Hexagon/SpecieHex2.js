@@ -219,7 +219,7 @@ const SpecieHex = ({ scientific_name, localNames, family, genera, images }) => {
   if (img) {
     imgUrl = `https://res.cloudinary.com/${
       images.cloud_name
-    }/image/upload/c_pad,w_128,h_128/v1/${img.public_id}`
+    }/image/upload/c_pad,w_256,h_256/v1/${img.public_id}`
   }
   const color = getColor(family)
   // console.log(family, color)
