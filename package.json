@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npx gatsby build",
-    "develop": "npx gatsby develop",
+    "dev": "npx gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "npx gatsby serve",
