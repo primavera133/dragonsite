@@ -18,7 +18,7 @@
     "@emotion/styled": "^10.0.23",
     "cloudinary-react": "^1.2.1",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.18.4",
+    "gatsby": "^2.18.12",
     "gatsby-plugin-emotion": "^4.1.16",
     "gatsby-plugin-google-analytics": "^2.1.29",
     "gatsby-plugin-react-helmet": "^3.1.16",
@@ -29,6 +29,7 @@
     "react-autosuggest": "^9.4.3",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-images": "^1.0.0",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
     "typography-theme-lincoln": "^0.16.19"

@@ -16,6 +16,7 @@ exports.createPages = async ({ actions, graphql }) => {
             cloud_name
             all {
               public_id
+              caption
               license
               lic_url
               by

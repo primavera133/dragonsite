@@ -1,0 +1,13 @@
+.react-images__header_button svg {
+  fill: #333;
+  background-color: #fff;
+  opacity: 0.8;
+}
+
+.react-images__footer__count {
+  color: #000;
+  background-color: #fff;
+  opacity: 0.8;
+  padding: 0.3rem 1rem;
+  font-size: 0.842105263157895rem;
+}

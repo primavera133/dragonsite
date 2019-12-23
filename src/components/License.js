@@ -1,4 +1,15 @@
 import React from 'react'
+import styled from '@emotion/styled'
+
+const License = styled.a`
+  margin: 0 0 0 0.25rem;
+  background-image: none;
+  // vertical-align: baseline;
+`
+
+const LicImg = styled.img`
+  margin: 0 1px;
+`
 
 export default ({ license, url }) => {
   let hasCC = license.toLowerCase().includes('cc')
@@ -6,10 +17,10 @@ export default ({ license, url }) => {
   let hasSA = license.toLowerCase().includes('sa')
 
   return (
-    <a href={url} target='_blank' rel='noreferrer noopener'>
-      {hasCC && <img src='/cc.png' alt='Creative Commons' />}
-      {hasBY && <img src='/by.png' alt='' />}
-      {hasSA && <img src='/sa.png' alt='' />}
-    </a>
+    <License href={url} target='_blank' rel='noreferrer noopener'>
+      {hasCC && <LicImg src='/cc.png' alt='Creative Commons' />}
+      {hasBY && <LicImg src='/by.png' alt='' />}
+      {hasSA && <LicImg src='/sa.png' alt='' />}
+    </License>
   )
 }

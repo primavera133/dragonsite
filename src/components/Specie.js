@@ -9,6 +9,7 @@ import FlightPeriod from './FlightPeriod'
 import MediaLinks from './MediaLinks'
 import ReportLinks from './ReportLinks'
 import Search from './Search'
+import { ImageCarousel } from './carousel/ImageCarousel'
 
 export default ({ pageContext }) => {
   return (
@@ -34,6 +35,7 @@ export default ({ pageContext }) => {
     >
       <SpecieNames pageContext={pageContext} />
       <SpecieMain pageContext={pageContext} />
+      <ImageCarousel pageContext={pageContext} />
       <h2>Description</h2>
       <p>{pageContext.description}</p>
       <h2>Behaviour</h2>

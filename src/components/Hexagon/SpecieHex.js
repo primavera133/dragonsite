@@ -179,7 +179,6 @@ const SpecieHex = ({ scientific_name, localNames, family, genera, images }) => {
     }/image/upload/c_pad,w_128,h_128/v1/${img.public_id}`
   }
   const color = getColor(family)
-  // console.log(family, color)
   return (
     <HexItem color={color}>
       <HexInner color={color}>

@@ -17,19 +17,18 @@ const SpecieMain = styled.figure`
   }
 `
 const SpecieMainFigCap = styled.figcaption`
-  color: #999;
-  font-size: 0.8rem;
-
+  font-size: 0.842105263157895rem;
   a {
     text-decoration: none;
     background-image: none;
-    padding: 0 0.4rem 0 0;
     vertical-align: middle;
   }
-  img {
-    margin: 0 4px 0 0;
-  }
 `
+
+const Caption = styled.div`
+  color: hsla(0, 0%, 0%, 0.73);
+`
+const SubCaption = styled.div``
 
 export default ({ pageContext }) => {
   const { images } = pageContext
@@ -72,16 +71,19 @@ export default ({ pageContext }) => {
         alt={pageContext.scientific_name}
       />
       <SpecieMainFigCap>
-        {mainImage.url && (
-          <>
-            Photo:{' '}
-            <a href={mainImage.url} target='_blank' rel='noreferrer noopener'>
-              {mainImage.by}
-            </a>
-          </>
-        )}
-        {!mainImage.url && <span>{mainImage.by}</span>}
-        <License license={mainImage.license} url={mainImage.lic_url} />
+        <Caption>{mainImage.caption}</Caption>
+        <SubCaption>
+          {mainImage.url && (
+            <>
+              Photo:{' '}
+              <a href={mainImage.url} target='_blank' rel='noreferrer noopener'>
+                {mainImage.by}
+              </a>
+            </>
+          )}
+          {!mainImage.url && <span>{mainImage.by}</span>}
+          <License license={mainImage.license} url={mainImage.lic_url} />
+        </SubCaption>
       </SpecieMainFigCap>
     </SpecieMain>
   )
