@@ -10,6 +10,7 @@ import MediaLinks from './MediaLinks'
 import ReportLinks from './ReportLinks'
 import Search from './Search'
 import { ImageCarousel } from './carousel/ImageCarousel'
+import { Markdown } from 'react-showdown'
 
 export default ({ pageContext }) => {
   return (
@@ -37,11 +38,11 @@ export default ({ pageContext }) => {
       <SpecieMain pageContext={pageContext} />
       <ImageCarousel pageContext={pageContext} />
       <h2>Description</h2>
-      <p>{pageContext.description}</p>
+      <Markdown markup={pageContext.description} />
       <h2>Behaviour</h2>
-      <p>{pageContext.behaviour}</p>
+      <Markdown markup={pageContext.behaviour} />
       <h2>Habitat</h2>
-      <p>{pageContext.habitat}</p>
+      <Markdown markup={pageContext.habitat} />
       <Distribution pageContext={pageContext} />
     </Layout>
   )

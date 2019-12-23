@@ -11,7 +11,7 @@
     "start": "npm run develop",
     "serve": "npx gatsby serve",
     "clean": "npx gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "test": "npm run lockfile-lint",
     "lockfile-lint": "lockfile-lint --path package-lock.json --type npm --validate-https --allowed-hosts npm"
   },
   "dependencies": {
@@ -31,6 +31,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-images": "^1.0.0",
+    "react-showdown": "^1.6.0",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
     "typography-theme-lincoln": "^0.16.19"
