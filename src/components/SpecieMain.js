@@ -18,11 +18,11 @@ const SpecieMain = styled.figure`
 `
 const SpecieMainFigCap = styled.figcaption`
   font-size: 0.842105263157895rem;
-  a {
-    text-decoration: none;
-    background-image: none;
-    vertical-align: middle;
-  }
+`
+
+const NameLink = styled.a`
+  text-decoration: none;
+  background-image: none;
 `
 
 const Caption = styled.div`
@@ -76,9 +76,13 @@ export default ({ pageContext }) => {
           {mainImage.url && (
             <>
               Photo:{' '}
-              <a href={mainImage.url} target='_blank' rel='noreferrer noopener'>
+              <NameLink
+                href={mainImage.url}
+                target='_blank'
+                rel='noreferrer noopener'
+              >
                 {mainImage.by}
-              </a>
+              </NameLink>
             </>
           )}
           {!mainImage.url && <span>{mainImage.by}</span>}
