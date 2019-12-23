@@ -14,8 +14,12 @@ const Gallery = styled.div`
 const ImageButton = styled.button`
   box-sizing: border-box;
   border: none;
-  padding: 0;
+  padding: 0 4px 0 0;
   max-width: 33%;
+
+  :nth-of-type(3) {
+    padding: 0;
+  }
 
   :hover {
     opacity: 0.75;
