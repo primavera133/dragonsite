@@ -2,7 +2,7 @@
     <img alt="Gatsby" src="./static/libellula-bw.png" width="60" />
 </p>
 <h1 align="center">
-  European dragonflies
+  Dragonfly guide
 </h1>
 <h2>A Gatsby site project</h2>
 
@@ -31,6 +31,6 @@
     <p>These are all excellent books, go get them if you don't have them.</p>
     <h4>Work in progress</h4>
     <p>
-      This is a work in progress, not many species are covered yet. If you like
+      This is a work in progress, not all species are covered yet. If you like
       to contribute, please contact jonas@myrenas.se for details on how to help.
     </p>
