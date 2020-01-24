@@ -1,16 +1,16 @@
-import React from 'react'
-import Layout from '../components/Layout'
-import SpecieNames from '../components/SpecieNames'
-import SpecieMain from './SpecieMain'
-import Distribution from './Distribution'
-import SimilarSpecies from './SimilarSpecies'
-import RedListStatus from './RedListStatus'
-import FlightPeriod from './FlightPeriod'
-import MediaLinks from './MediaLinks'
-import ReportLinks from './ReportLinks'
-import Search from './Search'
-import { ImageCarousel } from './carousel/ImageCarousel'
-import { Markdown } from 'react-showdown'
+import React from "react"
+import Layout from "../components/Layout"
+import SpecieNames from "../components/SpecieNames"
+import SpecieMain from "./SpecieMain"
+import Distribution from "./Distribution"
+import SimilarSpecies from "./SimilarSpecies"
+import RedListStatus from "./RedListStatus"
+import FlightPeriod from "./FlightPeriod"
+import MediaLinks from "./MediaLinks"
+import ReportLinks from "./ReportLinks"
+import Search from "./Search"
+import { ImageCarousel } from "./carousel/ImageCarousel"
+import { Markdown } from "react-showdown"
 
 export default ({ pageContext }) => {
   return (
