@@ -1,7 +1,7 @@
 {
   "name": "dragonfly-guide",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Dragonfly guide built with Gatsby",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
