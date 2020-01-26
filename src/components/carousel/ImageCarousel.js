@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 import styled from "@emotion/styled"
-import Carousel, { Modal, ModalGateway } from "react-images"
+import Lightbox from "react-image-lightbox"
 import { FooterCaption } from "./FooterCaption"
 import { getAltText } from "./getAltText"
 import { formatImageData } from "./formatImageData"
+
 import "./carousel.css"
+import "react-image-lightbox/style.css"
 
 const Gallery = styled.div`
   display: flex;
@@ -64,19 +66,32 @@ export const ImageCarousel = ({ pageContext }) => {
         ))}
       </Gallery>
 
-      <ModalGateway>
-        {isLightboxOpen ? (
-          <Modal onClose={toggleLightbox}>
-            <Carousel
-              components={{ FooterCaption }}
-              currentIndex={selectedIndex}
-              formatters={{ getAltText }}
-              frameProps={{ autoSize: "height" }}
-              views={images}
+      {isLightboxOpen && (
+        <Lightbox
+          mainSrc={images[selectedIndex].src}
+          nextSrc={images[(selectedIndex + 1) % images.length]}
+          prevSrc={images[(selectedIndex + images.length - 1) % images.length]}
+          onCloseRequest={() => setLightboxOpen(false)}
+          onMovePrevRequest={() =>
+            setSelectedIndex(
+              (selectedIndex + images.length - 1) % images.length
+            )
+          }
+          onMoveNextRequest={() =>
+            setSelectedIndex((selectedIndex + 1) % images.length)
+          }
+          imageCaption={
+            <FooterCaption
+              currentView={{
+                caption: images[selectedIndex].caption,
+                author: images[selectedIndex].author,
+                license: images[selectedIndex].license,
+              }}
+              isModal={true}
             />
-          </Modal>
-        ) : null}
-      </ModalGateway>
+          }
+        ></Lightbox>
+      )}
     </>
   )
 }
