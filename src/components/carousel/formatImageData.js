@@ -1,4 +1,4 @@
-import cloudinary from 'cloudinary-core'
+import cloudinary from "cloudinary-core"
 
 const widthThumb = 250
 // const widthCarousel = 1024
@@ -6,7 +6,7 @@ const widthThumb = 250
 export const formatImageData = ({ images, caption }) => {
   const cl = new cloudinary.Cloudinary({
     cloud_name: images.cloud_name,
-    secure: true
+    secure: true,
   })
 
   if (!images) return []
@@ -17,19 +17,20 @@ export const formatImageData = ({ images, caption }) => {
       caption: img.caption,
       author: {
         url: img.url,
-        by: img.by
+        by: img.by,
       },
       thumbnail: `${cl.url(img.public_id, {
         width: widthThumb,
-        crop: 'scale'
+        height: widthThumb,
+        crop: "pad",
       })}`,
       src: `${cl.url(img.public_id, {
-        crop: 'scale'
+        crop: "scale",
       })}`,
       license: {
         license: img.license,
-        licUrl: img.lic_url
-      }
+        licUrl: img.lic_url,
+      },
     }
   })
 }
