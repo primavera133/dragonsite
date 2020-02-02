@@ -65,7 +65,7 @@ exports.createPages = async ({ actions, graphql }) => {
   data.dragonflies.species.forEach(context => {
     actions.createPage({
       path: `/species/${context.scientific_name}/`,
-      component: path.resolve(`./src/dynamicPages/Specie.js`),
+      component: path.resolve(`./src/dynamicPages/SpeciePage.js`),
       context: {
         names,
         ...context,
@@ -92,7 +92,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
       actions.createPage({
         path: `/families/${context.family_name}`,
-        component: path.resolve('./src/dynamicPages/Family.js'),
+        component: path.resolve('./src/dynamicPages/FamilyPage.js'),
         context: {
           species,
           ...context,
