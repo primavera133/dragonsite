@@ -166,9 +166,6 @@ export default ({ head, left, right, children }) => {
         </Menu>
       </Header>
       <MiddleColumn>{children}</MiddleColumn>
-      <Footer>
-        <FooterContent />
-      </Footer>
     </Wrapper>
   )
 }

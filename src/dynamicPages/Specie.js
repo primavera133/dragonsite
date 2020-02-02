@@ -1,4 +1,6 @@
 import React from 'react'
+import { Markdown } from 'react-showdown'
+
 import Layout from '../components/Layout'
 import SpecieNames from '../components/SpecieNames'
 import SpecieMain from '../components/SpecieMain'
@@ -10,7 +12,7 @@ import MediaLinks from '../components/MediaLinks'
 import ReportLinks from '../components/ReportLinks'
 import Search from '../components/Search'
 import { ImageCarousel } from '../components/carousel/ImageCarousel'
-import { Markdown } from 'react-showdown'
+import FooterContent from '../components/FooterContent'
 
 export default ({ pageContext }) => {
   return (
@@ -31,6 +33,11 @@ export default ({ pageContext }) => {
         <>
           <MediaLinks pageContext={pageContext} />
           <ReportLinks pageContext={pageContext} />
+        </>
+      }
+      footer={
+        <>
+          <FooterContent pageContext={pageContext} />
         </>
       }
     >

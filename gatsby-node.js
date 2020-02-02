@@ -39,6 +39,7 @@ exports.createPages = async ({ actions, graphql }) => {
             length
             wingspan
           }
+          sources
         }
         taxonomy {
           families {

@@ -2,11 +2,10 @@ import React from 'react'
 import { useStaticQuery, Link, graphql } from 'gatsby'
 import ListLink from './ListLink'
 import styled from '@emotion/styled'
-import FooterContent from './FooterContent'
 import Helmet from 'react-helmet'
 import './layout.css'
 
-export default ({ head, left, right, children }) => {
+export default ({ head, left, right, children, footer }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -154,48 +153,47 @@ export default ({ head, left, right, children }) => {
   const ThirdColumn = styled.aside`
     grid-area: third-column;
   `
-
   const Footer = styled.footer`
-    grid-area: footer;
+    background: #deded2;
   `
 
   return (
-    <Wrapper>
-      <Helmet>
-        <link
-          rel='stylesheet'
-          href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
-        />
-      </Helmet>
-      <Header>
-        <div>
-          <H3>
-            <img src='/libellula-bw.png' alt='libellula' />
-            <HeaderLink to={'/'}>{data.site.siteMetadata.title}</HeaderLink>
-          </H3>
-          {head}
-        </div>
+    <>
+      <Wrapper>
+        <Helmet>
+          <link
+            rel='stylesheet'
+            href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
+          />
+        </Helmet>
+        <Header>
+          <div>
+            <H3>
+              <img src='/libellula-bw.png' alt='libellula' />
+              <HeaderLink to={'/'}>{data.site.siteMetadata.title}</HeaderLink>
+            </H3>
+            {head}
+          </div>
 
-        <Menu>
-          <MenuList>
-            <ListLink inline to='/'>
-              Home
-            </ListLink>
-            <ListLink inline to='/about/'>
-              About
-            </ListLink>
-            <ListLink inline to='/species/'>
-              Species
-            </ListLink>
-          </MenuList>
-        </Menu>
-      </Header>
-      <FirstColumn>{left}</FirstColumn>
-      <MiddleColumn>{children}</MiddleColumn>
-      <ThirdColumn>{right}</ThirdColumn>
-      <Footer>
-        <FooterContent />
-      </Footer>
-    </Wrapper>
+          <Menu>
+            <MenuList>
+              <ListLink inline to='/'>
+                Home
+              </ListLink>
+              <ListLink inline to='/about/'>
+                About
+              </ListLink>
+              <ListLink inline to='/species/'>
+                Species
+              </ListLink>
+            </MenuList>
+          </Menu>
+        </Header>
+        <FirstColumn>{left}</FirstColumn>
+        <MiddleColumn>{children}</MiddleColumn>
+        <ThirdColumn>{right}</ThirdColumn>
+      </Wrapper>
+      <Footer>{footer}</Footer>
+    </>
   )
 }
