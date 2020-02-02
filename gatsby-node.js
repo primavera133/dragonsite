@@ -1,4 +1,5 @@
 const path = require(`path`)
+
 exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     query {
@@ -39,6 +40,17 @@ exports.createPages = async ({ actions, graphql }) => {
             wingspan
           }
         }
+        taxonomy {
+          families {
+            family_name
+            generas {
+              genera_name
+              species {
+                scientific_name
+              }
+            }
+          }
+        }
       }
     }
   `)
@@ -52,11 +64,39 @@ exports.createPages = async ({ actions, graphql }) => {
   data.dragonflies.species.forEach(context => {
     actions.createPage({
       path: `/species/${context.scientific_name}/`,
-      component: path.resolve(`./src/components/Specie.js`),
+      component: path.resolve(`./src/dynamicPages/Specie.js`),
       context: {
         names,
-        ...context
-      }
+        ...context,
+      },
     })
   })
+
+  await Promise.all(
+    data.dragonflies.taxonomy.families.map(async context => {
+      const { data: familyData } = await graphql(
+        `
+          query GetFamilySpecies($family_name: String!) {
+            dragonflies {
+              familySpecies(name: $family_name) {
+                scientific_name
+                local_names
+              }
+            }
+          }
+        `,
+        { family_name: context.family_name }
+      )
+      const species = familyData.dragonflies.familySpecies || []
+
+      actions.createPage({
+        path: `/families/${context.family_name}`,
+        component: path.resolve('./src/dynamicPages/Family.js'),
+        context: {
+          species,
+          ...context,
+        },
+      })
+    })
+  )
 }
