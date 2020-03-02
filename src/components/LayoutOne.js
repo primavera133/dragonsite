@@ -2,7 +2,6 @@ import React from 'react'
 import { useStaticQuery, Link, graphql } from 'gatsby'
 import ListLink from './ListLink'
 import styled from '@emotion/styled'
-import FooterContent from './FooterContent'
 import Helmet from 'react-helmet'
 import './layout.css'
 
@@ -128,10 +127,6 @@ export default ({ head, left, right, children }) => {
   `
   const MiddleColumn = styled.main`
     grid-area: main-column;
-  `
-
-  const Footer = styled.footer`
-    grid-area: footer;
   `
 
   return (

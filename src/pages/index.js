@@ -1,8 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { getNamesList } from '../utils/getNamesList'
-import Layout from '../components/Layout'
+import Layout from '../components/LayoutOne'
 import Search from '../components/Search'
+import StartpageHexagons from '../components/StartpageHexagons'
 
 export default ({ data }) => {
   return (
@@ -13,7 +14,7 @@ export default ({ data }) => {
         </>
       }
     >
-      <h1>Hello visitor!</h1>
+      <StartpageHexagons></StartpageHexagons>
     </Layout>
   )
 }
