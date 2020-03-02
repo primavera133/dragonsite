@@ -8,15 +8,7 @@
 
 @media all and (min-width: 768px) {
   .search {
-    margin: 0 0 0 80px;
-    width: 80%;
-  }
-}
-
-@media all and (min-width: 1024px) {
-  .search {
-    margin: 0 0 0 100px;
-    width: 100%;
+    margin: 0;
   }
 }
 
@@ -39,6 +31,7 @@
 
 .react-autosuggest__container {
   width: 100%;
+  max-height: 36px;
   border: 3px solid #2b96a5;
   border-right: none;
   border-radius: 5px 0 0 5px;
