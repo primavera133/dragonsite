@@ -58,6 +58,10 @@ const Grid = styled.ul`
   font-family: sans-serif;
   list-style-type: none;
 
+  @media all and (min-width: 768px) {
+    width: 75%;
+  }
+
   /* <- 3-2  hexagons per row */
   padding-bottom: 7.4%;
   font-size: 14px;
