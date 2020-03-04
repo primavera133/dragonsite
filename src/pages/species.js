@@ -1,9 +1,9 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { getNamesList } from "../utils/getNamesList"
-import LayoutOne from "../components/LayoutOne"
-import Search from "../components/Search"
-import HexagonGrid from "../components/hexagon/HexagonGrid2"
+import React from 'react'
+import { graphql } from 'gatsby'
+import { getNamesList } from '../utils/getNamesList'
+import LayoutOne from '../components/LayoutOne'
+import Search from '../components/Search'
+import HexagonGrid from '../components/hexagon/HexagonGrid'
 
 export default ({ data }) => {
   return (

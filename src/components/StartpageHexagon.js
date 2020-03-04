@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import StartPageMessage from './StartPageMessage'
 
 const HexItem = styled.li`
   position: relative;
@@ -45,7 +46,7 @@ const HexInner = styled.div`
   }
 
   :hover div {
-    //  background-image: none !important;
+    // background-image: none !important;
   }
   :hover div:before,
   :hover div:after,
@@ -116,18 +117,19 @@ const HexImg = styled.div`
   }
 `
 
-const SpecieHex = ({ images }) => {
+const SpecieHex = ({ images, link, message }) => {
   const imgUrl = images.large
 
   return (
     <HexItem>
       <HexInner>
-        <HexLink href='#'>
+        <HexLink href={link}>
           <HexImg
             style={{
               backgroundImage: `url(${imgUrl})`,
             }}
           ></HexImg>
+          <StartPageMessage>{message}</StartPageMessage>
         </HexLink>
       </HexInner>
     </HexItem>

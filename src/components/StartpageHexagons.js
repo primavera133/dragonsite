@@ -9,6 +9,8 @@ const species = [
       large:
         'https://res.cloudinary.com/dragonflies/image/upload/c_crop,h_3456,w_3456/c_scale,h_600,w_600/v1578334562/dragonflies/onychogomphus_cecilia_o_bei16b.jpg',
     },
+    message: 'Species',
+    link: '/species',
   },
   {
     items_id: 2,
@@ -16,6 +18,8 @@ const species = [
       large:
         'https://res.cloudinary.com/dragonflies/image/upload/c_crop,h_2412,w_2412/c_scale,h_600,w_600/v1578660285/dragonflies/aeshna_juncea_o_czpwpm.jpg',
     },
+    message: 'Families',
+    link: '/families',
   },
   {
     items_id: 3,
@@ -23,6 +27,8 @@ const species = [
       large:
         'https://res.cloudinary.com/dragonflies/image/upload/c_crop,h_3456,w_3456/c_scale,h_600,w_600/v1578659778/dragonflies/onychogomphus_forcipatus_o_cmqyyg.jpg',
     },
+    message: 'Generas',
+    link: '/generas',
   },
   {
     items_id: 4,
@@ -30,6 +36,8 @@ const species = [
       large:
         'https://res.cloudinary.com/dragonflies/image/upload/c_crop,h_3456,w_3456/c_scale,h_600,w_600/v1578667090/dragonflies/sympetrum_flaveolum_o_eusrul.jpg',
     },
+    message: 'About',
+    link: '/about',
   },
   {
     items_id: 5,
@@ -37,6 +45,7 @@ const species = [
       large:
         'https://res.cloudinary.com/dragonflies/image/upload/c_crop,g_east,h_2954,w_2954/c_scale,h_600,w_600/v1580763189/dragonflies/calopteryx_virgo_o_ncw0wb.jpg',
     },
+    message: '',
   },
 ]
 
@@ -58,7 +67,12 @@ export default () => {
   return (
     <Grid>
       {species.map(sp => (
-        <StartpageHexagon images={sp.images} key={`hex_${sp.items_id}`} />
+        <StartpageHexagon
+          images={sp.images}
+          key={`hex_${sp.items_id}`}
+          message={sp.message}
+          link={sp.link}
+        />
       ))}
     </Grid>
   )

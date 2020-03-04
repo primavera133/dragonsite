@@ -4,191 +4,241 @@ import getColor from './getColor'
 
 const HexItem = styled.li`
   position: relative;
-  width: 140px;
-  height: 80.83px;
-  background-color: #9fa0a2;
-  margin: 44px 2px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  :before,
-  :after {
+  visibility: hidden;
+  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  transition: all 0.5s;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: all 0.5s;
+  margin: 0;
+
+  ::after {
     content: '';
-    position: absolute;
-    width: 0;
-    border-left: 70px solid transparent;
-    border-right: 70px solid transparent;
-  }
-  :before {
-    bottom: 100%;
-    border-bottom: 40.41px solid #9fa0a2;
-  }
-  :after {
-    top: 100%;
-    width: 0;
-    border-top: 40.41px solid #9fa0a2;
+    display: block;
+    padding-bottom: 86.602%; /* =  100 / tan(60) * 1.5 */
   }
 
-  > *:last-child {
-    margin-bottom: 39.26px;
+  @media (min-width: 1201px) {
+    /* <- 8-7  hexagons per row */
+    width: 12.5%; /* = 100 / 8 */
+    :nth-of-type(15n + 9) {
+      /* first hexagon of even rows */
+      margin-left: 6.25%; /* = width of HexItem / 2  to indent even rows */
+    }
   }
 
-  @media (min-width: 1920px) {
-    :nth-of-type(21n + 12) {
-      margin-left: 74px;
+  @media (max-width: 1200px) and (min-width: 901px) {
+    /* <- 7-6  hexagons per row */
+    width: 14.2857142857142%; /* = 100 / 7 */
+    :nth-of-type(13n + 8) {
+      /* first hexagon of even rows */
+      margin-left: 7.142857142857143%; /* = width of HexItem / 2  to indent even rows */
     }
   }
-  @media (max-width: 1919px) and (min-width: 1280px) {
-    :nth-of-type(14n + 8) {
-      margin-left: 74px;
+
+  @media (max-width: 900px) and (min-width: 751px) {
+    /* <- 6-5  hexagons per row */
+    width: 16.666666666666667%; /* = 100 / 7 */
+    :nth-of-type(11n + 7) {
+      /* first hexagon of even rows */
+      margin-left: 8.333333333333333%; /* = width of HexItem / 2  to indent even rows */
     }
   }
-  @media (max-width: 1279px) and (min-width: 1024px) {
-    :nth-of-type(12n + 7) {
-      margin-left: 74px;
-    }
-  }
-  @media (max-width: 1023px) and (min-width: 781px) {
+
+  @media (max-width: 750px) and (min-width: 601px) {
+    /* <- 5-4  hexagons per row */
+    width: 20%; /* = 100 / 5 */
     :nth-of-type(9n + 6) {
-      margin-left: 74px;
-    }
-  }
-  @media (max-width: 780px) and (min-width: 640px) {
-    :nth-of-type(7n + 5) {
-      margin-left: 74px;
-    }
-  }
-  @media (max-width: 639px) and (min-width: 425px) {
-    :nth-of-type(4n + 3) {
-      margin-left: 74px;
-    }
-  }
-  @media (max-width: 424px) {
-    :nth-of-type(3n + 3) {
-      margin-left: 74px;
+      /* first hexagon of even rows */
+      margin-left: 10%; /* = width of HexItem / 2  to indent even rows */
     }
   }
 
-  /* Hexagon Color Coding */
-  background-color: ${props => props.color.border};
-  :before {
-    border-bottom-color: ${props => props.color.border};
+  @media (max-width: 600px) and (min-width: 376px) {
+    /* <- 4-3  hexagons per row */
+    width: 25%; /* = 100 / 5 */
+    :nth-of-type(7n + 5) {
+      /* first hexagon of even rows */
+      margin-left: 12.5%; /* = width of HexItem / 2  to indent even rows */
+    }
   }
-  :after {
-    border-top-color: ${props => props.color.border};
+
+  @media (max-width: 375px) {
+    /* <- 3-2  hexagons per row */
+    width: 33.333333333333333%; /* = 100 / 3 */
+    :nth-of-type(5n + 4) {
+      /* first hexagon of even rows */
+      margin-left: 16.666666666666667%; /* = width of HexItem / 2  to indent even rows */
+    }
   }
 `
 
 const HexInner = styled.div`
-  position: relative;
-  width: 136px;
-  height: 78.52px;
-  background-color: #c9c9c9;
-  margin: 39.26px 0;
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  width: 96%;
+  padding-bottom: 110.851%; /* =  width / sin(60) */
+  margin: 2%;
+  overflow: hidden;
+  visibility: hidden;
+  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  -webkit-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+  -ms-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+  transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+  transition: all 0.5s;
+
+  * {
+    position: absolute;
+    visibility: visible;
+    outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  }
+
+  :hover div {
+    background-image: none !important;
+  }
+  :hover div:before,
+  :hover div:after,
+  :hover a {
+    opacity: 1;
+  }
+`
+
+const HexLink = styled.a`
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  -webkit-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+  -ms-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+  transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+
+  :hover h3 {
+    opacity: 1;
+    transition: 0.8s;
+  }
+  :focus h3 {
+    opacity: 1;
+    transition: 0.8s;
+  }
+  :hover p {
+    opacity: 1;
+    transition: 0.8s;
+  }
+  :focus p {
+    opacity: 1;
+    transition: 0.8s;
+  }
+`
+
+const HexImg = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position: center center;
+  background-blend-mode: multiply;
+  background-size: cover;
+  overflow: hidden;
+  -webkit-clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+
   :before,
   :after {
-    content: '';
     position: absolute;
-    width: 0;
-    border-left: 68px solid transparent;
-    border-right: 68px solid transparent;
-    z-index: 1;
-  }
-  :before {
-    bottom: 100%;
-    border-bottom: 39.26px solid #c9c9c9;
-  }
-  :after {
-    top: 100%;
-    width: 0;
-    border-top: 39.26px solid #c9c9c9;
-  }
-
-  /* Color */
-  background-color: ${props => props.color.color};
-  :before {
-    border-bottom-color: ${props => props.color.color};
-  }
-  :after {
-    border-top-color: ${props => props.color.color};
-  }
-`
-const HexAvatarLink = styled.a`
-  position: absolute;
-  top: -24px;
-  z-index: 1;
-  background-image: none;
-`
-
-const HexAvatar = styled.img`
-  width: 48px;
-  border-radius: 48px;
-  border: 2px solid #fff;
-  z-index: 1;
-  :hover {
-    width: 56px;
-    border-radius: 56px;
-    border: 3px solid #fff;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    opacity: 0;
+    transition: opacity 0.5s;
   }
 `
 
-const HexLabel = styled.a`
-  position: absolute;
-  top: 32px;
-  width: 130px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 47px;
-  flex-direction: column;
-  color: ${props => props.color.text};
-  background-image: none;
-`
+const HexHeader = styled.h3`
+  width: 100%;
+  padding: 5%;
+  box-sizing: border-box;
+  font-weight: 300;
 
-const HexName = styled.div`
+  opacity: 1;
+  color: #fff;
+  text-shadow: 0.6px 0.6px 1.2px #000, 0 0 0.2em #2e6733;
+  margin: 0;
+  @media not all and (hover: none) {
+    color: #000;
+    text-shadow: none;
+    opacity: 0;
+  }
+
   text-align: center;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
+  bottom: 50%;
+  padding-top: 50%;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  word-break: keep-all;
+  word-wrap: break-word;
+  hyphens: auto;
+  z-index: 1;
+`
+
+const HexText = styled.p`
+  margin: 0;
+  width: 100%;
+  padding: 5%;
+  box-sizing: border-box;
+  font-size: 0.7rem;
+  font-weight: 300;
+  opacity: 0.8;
+  text-shadow: 1px 1px 2px #000, 0 0 0.2em #2e6733;
+  @media not all and (hover: none) {
+    opacity: 0;
+    text-shadow: none;
+    color: #333;
+  }
+
+  color: #fff;
+  text-align: center;
+  bottom: 50%;
+  padding-top: 60%;
   line-height: 1.2;
   z-index: 1;
-  :hover {
-    font-size: 16px;
-    line-height: 1;
-  }
-`
 
-const HexMetric = styled.div`
+  top: 0%;
   text-align: center;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 100;
-  font-size: 12px;
-  line-height: 1.6;
-  z-index: 1;
 `
 
 const SpecieHex = ({ scientific_name, localNames, family, genera, images }) => {
   const img = images.all ? images.all[0] : null
   let imgUrl =
-    'https://res.cloudinary.com/dragonflies/image/upload/c_pad,w_128,h_128/v1/dragonflies/libellula-bw_ozhigo.png'
+    'https://res.cloudinary.com/dragonflies/image/upload/c_fill,w_128,h_128/v1/dragonflies/libellula-bw_ozhigo.png'
   if (img) {
-    imgUrl = `https://res.cloudinary.com/${
-      images.cloud_name
-    }/image/upload/c_pad,w_128,h_128/v1/${img.public_id}`
+    imgUrl = `https://res.cloudinary.com/${images.cloud_name}/image/upload/c_fill,w_256,h_256/v1/${img.public_id}`
   }
   const color = getColor(family)
   return (
     <HexItem color={color}>
       <HexInner color={color}>
-        <HexAvatarLink href={`/species/${scientific_name}`} color={color}>
-          <HexAvatar src={imgUrl} alt='' />
-        </HexAvatarLink>
-        <HexLabel href={`/species/${scientific_name}`} color={color}>
-          <HexName>{scientific_name}</HexName>
-          <HexMetric className='hexagon-metric-label'>{localNames}</HexMetric>
-        </HexLabel>
+        <HexLink href={`/species/${scientific_name}`} color={color} style={{}}>
+          <HexImg
+            style={{
+              backgroundImage: `url(${imgUrl})`,
+              backgroundColor: color.bg,
+            }}
+          >
+            <HexHeader>{scientific_name}</HexHeader>
+            <HexText>{localNames}</HexText>
+          </HexImg>
+        </HexLink>
       </HexInner>
     </HexItem>
   )

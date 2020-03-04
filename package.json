@@ -17,6 +17,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
+    "@juggle/resize-observer": "^3.1.1",
     "cloudinary-react": "^1.2.1",
     "dotenv": "^8.2.0",
     "gatsby": "^2.18.12",
@@ -34,7 +35,9 @@
     "react-helmet": "^5.2.1",
     "react-image-lightbox": "^5.1.1",
     "react-showdown": "^1.6.0",
+    "react-spring": "^8.0.27",
     "react-typography": "^0.16.19",
+    "react-use-measure": "^2.0.0",
     "typography": "^0.16.19",
     "typography-theme-lincoln": "^0.16.19"
   },

@@ -5,31 +5,40 @@ import SpecieHex from './SpecieHex'
 const Grid = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  width: 60%;
+  width: 90%;
   margin: 0 auto;
-  padding: 0;
-  list-style: none;
+  overflow: hidden;
+  font-family: sans-serif;
+  list-style-type: none;
 
-  @media (min-width: 1920px) {
-    width: 1600px;
+  @media (min-width: 1201px) {
+    /* <- 5-4  hexagons per row */
+    padding-bottom: 4.4%;
   }
-  @media (max-width: 1919px) and (min-width: 1280px) {
-    width: 1100px;
+
+  @media (max-width: 1200px) and (min-width: 901px) {
+    /* <- 4-3  hexagons per row */
+    padding-bottom: 5.5%;
+    font-size: 13px;
   }
-  @media (max-width: 1279px) and (min-width: 1024px) {
-    width: 940px;
+
+  @media (max-width: 900px) and (min-width: 601px) {
+    /* <- 4-3  hexagons per row */
+    padding-bottom: 5.5%;
+    font-size: 13px;
   }
-  @media (max-width: 1023px) and (min-width: 781px) {
-    width: 780px;
+
+  @media (max-width: 600px) {
+    /* <- 3-2  hexagons per row */
+    padding-bottom: 7.4%;
+    font-size: 14px;
   }
-  @media (max-width: 780px) and (min-width: 640px) {
-    width: 578px;
-  }
-  @media (max-width: 639px) and (min-width: 425px) {
-    width: 360px;
-  }
-  @media (max-width: 424px) {
-    width: 290px;
+
+  @media (max-width: 400px) {
+    /* <- 2-1  hexagons per row */
+    padding-bottom: 11.2%;
+    // font-size: 12px;
+    font-size: 8px;
   }
 `
 
