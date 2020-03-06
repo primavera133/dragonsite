@@ -45,12 +45,12 @@ const Grid = styled.ul`
 const HexagonGrid = ({ families }) => (
   <Grid>
     {families.map(fam =>
-      fam.generas.map(gen =>
+      fam.genera.map(gen =>
         gen.species.map(sp => (
           <SpecieHex
             scientific_name={sp.scientific_name}
             family={fam.family_name}
-            genera={gen.genera_name}
+            genus={gen.genus_name}
             localNames={sp.local_names[0]}
             images={sp.images}
             key={`hex_${sp.items_id}`}

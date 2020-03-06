@@ -217,7 +217,7 @@ const HexText = styled.p`
   text-align: center;
 `
 
-const SpecieHex = ({ scientific_name, localNames, family, genera, images }) => {
+const SpecieHex = ({ scientific_name, localNames, family, images }) => {
   const img = images.all ? images.all[0] : null
   let imgUrl =
     'https://res.cloudinary.com/dragonflies/image/upload/c_fill,w_128,h_128/v1/dragonflies/libellula-bw_ozhigo.png'

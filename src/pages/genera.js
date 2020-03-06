@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { getNamesList } from '../utils/getNamesList'
 import LayoutOne from '../components/LayoutOne'
 import Search from '../components/Search'
-import HexagonGrid from '../components/hexagon/HexagonGrid'
+import GeneraList from '../components/GeneraList'
 
 export default ({ data }) => {
   return (
@@ -14,7 +14,9 @@ export default ({ data }) => {
         </>
       }
     >
-      <HexagonGrid families={data.dragonflies.taxonomy.families} />
+      <h2>Genera of Odonata</h2>
+      <p>These are the genera of Odonata covered on this site.</p>
+      <GeneraList genera={data.dragonflies.genera} />
     </LayoutOne>
   )
 }
@@ -22,24 +24,8 @@ export default ({ data }) => {
 export const query = graphql`
   query {
     dragonflies {
-      taxonomy {
-        families {
-          family_name
-          genera {
-            genus_name
-            species {
-              items_id
-              scientific_name
-              local_names
-              images {
-                cloud_name
-                all {
-                  public_id
-                }
-              }
-            }
-          }
-        }
+      genera {
+        genus_name
       }
       species {
         items_id

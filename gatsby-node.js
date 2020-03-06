@@ -4,6 +4,12 @@ exports.createPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     query {
       dragonflies {
+        genera {
+          genus_name
+          species {
+            scientific_name
+          }
+        }
         species {
           items_id
           scientific_name
@@ -44,8 +50,8 @@ exports.createPages = async ({ actions, graphql }) => {
         taxonomy {
           families {
             family_name
-            generas {
-              genera_name
+            genera {
+              genus_name
               species {
                 scientific_name
               }
@@ -66,6 +72,17 @@ exports.createPages = async ({ actions, graphql }) => {
     actions.createPage({
       path: `/species/${context.scientific_name}/`,
       component: path.resolve(`./src/dynamicPages/SpeciePage.js`),
+      context: {
+        names,
+        ...context,
+      },
+    })
+  })
+
+  data.dragonflies.genera.forEach(context => {
+    actions.createPage({
+      path: `/genus/${context.genus_name}/`,
+      component: path.resolve(`./src/dynamicPages/GeneraPage.js`),
       context: {
         names,
         ...context,

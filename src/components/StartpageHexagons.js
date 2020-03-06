@@ -27,8 +27,8 @@ const species = [
       large:
         'https://res.cloudinary.com/dragonflies/image/upload/c_crop,h_3456,w_3456/c_scale,h_600,w_600/v1578659778/dragonflies/onychogomphus_forcipatus_o_cmqyyg.jpg',
     },
-    message: 'Generas',
-    link: '/generas',
+    message: 'Genera',
+    link: '/genera',
   },
   {
     items_id: 4,
