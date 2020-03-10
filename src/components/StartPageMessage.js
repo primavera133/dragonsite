@@ -108,8 +108,8 @@ export default ({ children }) => {
         <text
           x='50%'
           y='50%'
-          text-anchor='middle'
-          alignment-baseline='central'
+          textAnchor='middle'
+          alignmentBaseline='central'
           fill='white'
         >
           {children}

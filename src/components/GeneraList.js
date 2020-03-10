@@ -5,7 +5,7 @@ import ListLink from './ListLink'
 export default ({ genera }) => (
   <ul>
     {genera.map((genus, idx) => (
-      <ListLink to={`/genus/${genus.genus_name}`} key={`gen_${idx}`}>
+      <ListLink to={`/genera/${genus.genus_name}`} key={`gen_${idx}`}>
         {genus.genus_name}
       </ListLink>
     ))}

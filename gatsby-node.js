@@ -79,16 +79,35 @@ exports.createPages = async ({ actions, graphql }) => {
     })
   })
 
-  data.dragonflies.genera.forEach(context => {
-    actions.createPage({
-      path: `/genus/${context.genus_name}/`,
-      component: path.resolve(`./src/dynamicPages/GeneraPage.js`),
-      context: {
-        names,
-        ...context,
-      },
+  await Promise.all(
+    data.dragonflies.genera.map(async context => {
+      const { data: genusData } = await graphql(
+        `
+          query aboutGenus($genus_name: String!) {
+            dragonflies {
+              aboutGenus(name: $genus_name) {
+                title
+              }
+            }
+          }
+        `,
+        { genus_name: context.genus_name }
+      )
+      const { aboutGenus } = genusData.dragonflies
+      const species = data.dragonflies.genera || []
+
+      actions.createPage({
+        path: `/genera/${context.genus_name}`,
+        component: path.resolve('./src/dynamicPages/genusPage.js'),
+        context: {
+          names,
+          species,
+          ...context,
+          ...aboutGenus,
+        },
+      })
     })
-  })
+  )
 
   await Promise.all(
     data.dragonflies.taxonomy.families.map(async context => {
