@@ -1,12 +1,12 @@
-import React, { useState } from "react"
-import styled from "@emotion/styled"
-import Lightbox from "react-image-lightbox"
-import { FooterCaption } from "./FooterCaption"
-import { getAltText } from "./getAltText"
-import { formatImageData } from "./formatImageData"
+import React, { useState } from 'react'
+import styled from '@emotion/styled'
+import Lightbox from 'react-image-lightbox'
+import { FooterCaption } from './FooterCaption'
+import { getAltText } from './getAltText'
+import { formatImageData } from './formatImageData'
 
-import "./carousel.css"
-import "react-image-lightbox/style.css"
+import './carousel.css'
+import 'react-image-lightbox/style.css'
 
 const Gallery = styled.div`
   display: flex;
@@ -41,6 +41,10 @@ const Thumbnail = styled.img`
 
   @media all and (min-width: 1024px) {
     height: calc(16.667vw - 1em);
+  }
+
+  @media all and (min-width: 1440px) {
+    height: 210px;
   }
 `
 
