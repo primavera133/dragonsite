@@ -98,7 +98,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
       actions.createPage({
         path: `/genera/${context.genus_name}`,
-        component: path.resolve('./src/dynamicPages/genusPage.js'),
+        component: path.resolve('./src/dynamicPages/GenusPage.js'),
         context: {
           names,
           species,
