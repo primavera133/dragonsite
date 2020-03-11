@@ -12,7 +12,7 @@ export default ({ pageContext }) => {
         </>
       }
     >
-      <h2>{pageContext.family_name}</h2>
+      <h2>{pageContext.title}</h2>
       <p>These are the species of family {pageContext.family_name}.</p>
       <FamilySpecieList species={pageContext.species} />
     </LayoutOne>

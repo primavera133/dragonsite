@@ -119,12 +119,16 @@ exports.createPages = async ({ actions, graphql }) => {
                 scientific_name
                 local_names
               }
+              aboutFamily(name: $family_name) {
+                title
+              }
             }
           }
         `,
         { family_name: context.family_name }
       )
       const species = familyData.dragonflies.familySpecies || []
+      const aboutFamily = familyData.dragonflies.aboutFamily
 
       actions.createPage({
         path: `/families/${context.family_name}`,
@@ -132,6 +136,7 @@ exports.createPages = async ({ actions, graphql }) => {
         context: {
           species,
           ...context,
+          ...aboutFamily,
         },
       })
     })
