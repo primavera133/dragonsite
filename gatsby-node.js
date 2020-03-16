@@ -87,6 +87,9 @@ exports.createPages = async ({ actions, graphql }) => {
             dragonflies {
               aboutGenus(name: $genus_name) {
                 title
+                author_citation
+                description
+                sources
               }
             }
           }
@@ -121,6 +124,9 @@ exports.createPages = async ({ actions, graphql }) => {
               }
               aboutFamily(name: $family_name) {
                 title
+                author_citation
+                description
+                sources
               }
             }
           }

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Markdown } from 'react-showdown'
 
 const FooterContent = styled.footer`
   font-size: 0.8rem;
@@ -18,7 +19,9 @@ export default ({ pageContext }) => {
       {pageContext.sources && (
         <ul>
           {pageContext.sources.map((source, idx) => (
-            <li key={`footer_${idx}`}>{source}</li>
+            <li key={`footer_${idx}`}>
+              <Markdown markup={source} />
+            </li>
           ))}
         </ul>
       )}
