@@ -1,7 +1,8 @@
 import React from 'react'
+import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import ListLink from './ListLink'
-import styled from '@emotion/styled'
+import LogoHexagon from './LogoHexagon'
 
 const Header = styled.header`
   grid-area: header;
@@ -12,20 +13,22 @@ const Header = styled.header`
 
   border-bottom: solid 0.5rem #deded2;
 
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   margin: -1rem -1rem 1.2rem;
 
   @media all and (min-width: 768px) {
     flex-flow: row;
-    padding: 1rem 1rem 2rem 1rem;
+    padding: 1rem 2rem 2rem;
     // padding: 2rem 1rem 2rem 3rem;
   }
 `
 const HeaderWrapper = styled.div`
-  width: 70%;
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-column-gap: 0.5rem;
+  grid-template-columns: 72px auto;
+  grid-template-areas:
+    'left top'
+    'left bottom';
 
   @media all and (min-width: 768px) {
     display: grid;
@@ -45,30 +48,12 @@ const HeaderLink = styled(Link)`
   background-image: none;
   color: #5c4031;
 `
-const Libellula = styled.img`
-  max-width: 48px;
-  max-height: 51px;
-  display: inline;
-  vertical-align: text-top;
-  margin: 0 0.3rem 0 0;
-
-  @media all and (min-width: 768px) {
-    grid-area: left;
-    max-width: 105px;
-    max-height: 113px;
-    margin: 0;
-  }
-
-  @media all and (min-width: 1024px) {
-  }
-`
 
 const H3 = styled.h3`
+  grid-area: top;
   color: #5c4031;
   margin: 0;
   line-height: 1.8;
-  flex-grow: 1;
-  text-align: right;
 
   @media all and (min-width: 768px) {
     grid-area: top;
@@ -83,6 +68,10 @@ const H3 = styled.h3`
 `
 
 const Menu = styled.nav`
+  grid-area: bottom;
+  margin-top: 0;
+  min-width: 230px;
+
   text-align: right;
   @media all and (min-width: 768px) {
     grid-area: bottom;
@@ -117,7 +106,8 @@ export default ({ title, children }) => {
   return (
     <Header>
       <HeaderWrapper>
-        <Libellula src='/libellula-bw.png' alt='libellula' />
+        <LogoHexagon />
+        {/* <Libellula src='/libellula-bw.png' alt='libellula' /> */}
         <H3>
           <HeaderLink to={'/'}>{title}</HeaderLink>
         </H3>
@@ -129,11 +119,17 @@ export default ({ title, children }) => {
           <ListLink inline to='/'>
             Home
           </ListLink>
-          <ListLink inline to='/about/'>
-            About
+          <ListLink inline to='/families/'>
+            Families
+          </ListLink>
+          <ListLink inline to='/genera/'>
+            Genera
           </ListLink>
           <ListLink inline to='/species/'>
             Species
+          </ListLink>
+          <ListLink inline to='/about/'>
+            About
           </ListLink>
         </MenuList>
       </Menu>

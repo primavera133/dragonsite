@@ -140,6 +140,7 @@ exports.createPages = async ({ actions, graphql }) => {
         path: `/families/${context.family_name}`,
         component: path.resolve('./src/dynamicPages/FamilyPage.js'),
         context: {
+          names,
           species,
           ...context,
           ...aboutFamily,
