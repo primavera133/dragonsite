@@ -1,0 +1,50 @@
+.genus-page table {
+  background-color: #ffffff;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+.genus-page table td,
+.genus-page table th {
+  padding: 3px 2px;
+}
+.genus-page table tbody td {
+  font-size: 15px;
+  line-height: 1.4;
+  vertical-align: top;
+  padding: 8px;
+}
+.genus-page table tr:nth-child(even) {
+  background: #f8fdff;
+}
+.genus-page table thead {
+  background: #abd7e0;
+  border-bottom: 2px solid #444444;
+}
+.genus-page table thead th {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: bold;
+  vertical-align: top;
+  padding: 8px;
+}
+.genus-page table tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background: #bae9f3;
+  border-top: 2px solid #444444;
+}
+.genus-page table tfoot td {
+  font-size: 14px;
+}
+.genus-page table tfoot .links {
+  text-align: right;
+}
+.genus-page table tfoot .links a {
+  display: inline-block;
+  background: #1c6ea4;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 5px;
+}

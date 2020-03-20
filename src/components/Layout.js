@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import './layout.css'
 import Header from './Header'
 
-export default ({ head, left, right, children, footer }) => {
+export default ({ head, left, right, children, footer, wrapperNamespace }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -71,7 +71,7 @@ export default ({ head, left, right, children, footer }) => {
 
   return (
     <>
-      <Wrapper>
+      <Wrapper className={wrapperNamespace}>
         <Helmet>
           <link
             rel='stylesheet'

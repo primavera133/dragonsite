@@ -6,6 +6,11 @@ import Search from '../components/Search'
 import FamiliesList from '../components/FamiliesList'
 
 export default ({ data }) => {
+  const families = data.dragonflies.taxonomy.families.sort((a, b) => {
+    if (a.family_name < b.family_name) return -1
+    if (a.family_name > b.family_name) return 1
+    return 0
+  })
   return (
     <LayoutOne
       head={
@@ -16,7 +21,7 @@ export default ({ data }) => {
     >
       <h2>Families of Odonata</h2>
       <p>These are the families of Odonata covered on this site.</p>
-      <FamiliesList families={data.dragonflies.taxonomy.families} />
+      <FamiliesList families={families} />
     </LayoutOne>
   )
 }

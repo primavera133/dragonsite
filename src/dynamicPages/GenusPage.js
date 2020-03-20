@@ -1,11 +1,14 @@
 import React from 'react'
-import { Markdown } from 'react-showdown'
+import { Converter } from 'react-showdown'
 import Layout from '../components/Layout'
 import styled from '@emotion/styled'
 import MediaLinks from '../components/MediaLinks'
 import Search from '../components/Search'
 import GenusSpecieList from '../components/GenusSpecieList'
 import FooterContent from '../components/FooterContent'
+import './genusPage.css'
+
+const converter = new Converter({ tables: true })
 
 const H1 = styled.h1`
   margin: 0;
@@ -51,10 +54,11 @@ export default ({ pageContext }) => {
           <FooterContent pageContext={pageContext} />
         </>
       }
+      wrapperNamespace='genus-page'
     >
       <H1>{pageContext.title}</H1>
       <AuthorCitation>{pageContext.author_citation}</AuthorCitation>
-      <Markdown markup={pageContext.description} />
+      {converter.convert(pageContext.description)}
     </Layout>
   )
 }

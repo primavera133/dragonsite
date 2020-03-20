@@ -6,6 +6,11 @@ import Search from '../components/Search'
 import GeneraList from '../components/GeneraList'
 
 export default ({ data }) => {
+  const genera = data.dragonflies.genera.sort((a, b) => {
+    if (a.genus_name < b.genus_name) return -1
+    if (a.genus_name > b.genus_name) return 1
+    return 0
+  })
   return (
     <LayoutOne
       head={
@@ -16,7 +21,7 @@ export default ({ data }) => {
     >
       <h2>Genera of Odonata</h2>
       <p>These are the genera of Odonata covered on this site.</p>
-      <GeneraList genera={data.dragonflies.genera} />
+      <GeneraList genera={genera} />
     </LayoutOne>
   )
 }
