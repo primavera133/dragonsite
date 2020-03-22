@@ -46,6 +46,14 @@ exports.createPages = async ({ actions, graphql }) => {
             wingspan
           }
           sources
+          links {
+            label
+            link
+          }
+          meta {
+            label
+            value
+          }
         }
         taxonomy {
           families {

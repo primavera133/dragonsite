@@ -5,13 +5,20 @@ const MediaLinks = styled.div``
 
 export default ({ pageContext }) => {
   return (
-    <MediaLinks>
-      <h4>Media links</h4>
-      <ul>
-        <li>link 1</li>
-        <li>link 2</li>
-        <li>link 3</li>
-      </ul>
-    </MediaLinks>
+    (pageContext.links && (
+      <MediaLinks>
+        <h4>Links</h4>
+        <ul>
+          {pageContext.links.map((link, idx) => (
+            <li key={`link${idx}`}>
+              <a href={link.link} target='_blank' rel='noopener noreferrer'>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </MediaLinks>
+    )) ||
+    null
   )
 }

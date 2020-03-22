@@ -5,11 +5,12 @@ import Layout from '../components/Layout'
 import SpecieNames from '../components/SpecieNames'
 import SpecieMain from '../components/SpecieMain'
 import Distribution from '../components/Distribution'
+import DistributionMap from '../components/DistributionMap'
 import SimilarSpecies from '../components/SimilarSpecies'
 import RedListStatus from '../components/RedListStatus'
 import FlightPeriod from '../components/FlightPeriod'
 import MediaLinks from '../components/MediaLinks'
-import ReportLinks from '../components/ReportLinks'
+// import ReportLinks from '../components/ReportLinks'
 import Search from '../components/Search'
 import { ImageCarousel } from '../components/carousel/ImageCarousel'
 import FooterContent from '../components/FooterContent'
@@ -32,7 +33,7 @@ export default ({ pageContext }) => {
       right={
         <>
           <MediaLinks pageContext={pageContext} />
-          <ReportLinks pageContext={pageContext} />
+          {/* <ReportLinks pageContext={pageContext} /> */}
         </>
       }
       footer={
@@ -51,6 +52,7 @@ export default ({ pageContext }) => {
       <h2>Habitat</h2>
       <Markdown markup={pageContext.habitat} />
       <Distribution pageContext={pageContext} />
+      <DistributionMap meta={pageContext.meta} />
     </Layout>
   )
 }

@@ -77,6 +77,12 @@ export default ({ head, left, right, children, footer, wrapperNamespace }) => {
             rel='stylesheet'
             href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
           />
+          <link
+            rel='stylesheet'
+            href='https://unpkg.com/leaflet@1.6.0/dist/leaflet.css'
+            integrity='sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=='
+            crossorigin=''
+          />
         </Helmet>
         <Header title={data.site.siteMetadata.title}>{head}</Header>
 
