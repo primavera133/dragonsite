@@ -49,10 +49,11 @@ export default ({ pageContext }) => {
       <Markdown markup={pageContext.description} />
       <h2>Behaviour</h2>
       <Markdown markup={pageContext.behaviour} />
+      <h2>Distribution</h2>
+      <DistributionMap meta={pageContext.meta} />
+      <Distribution pageContext={pageContext} />
       <h2>Habitat</h2>
       <Markdown markup={pageContext.habitat} />
-      <Distribution pageContext={pageContext} />
-      <DistributionMap meta={pageContext.meta} />
     </Layout>
   )
 }

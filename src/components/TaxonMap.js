@@ -7,6 +7,26 @@ const TaxonMap = ({ taxonKey }) => {
   const [bounds, setBounds] = useState()
   const [isLoading, setIsLoading] = useState(true)
 
+  useEffect(() => {
+    const fetchBoundingBox = async () => {
+      try {
+        fetch(
+          `https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=${taxonKey}&bin=hex&squareSize=128&style=classic.poly`
+        ).then(async res => {
+          const data = await res.json()
+          setBounds([
+            [data.minLat, data.minLng],
+            [data.maxLat, data.maxLng],
+          ])
+          setIsLoading(false)
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchBoundingBox()
+  }, [taxonKey])
+
   if (!isDomAvailable()) {
     return (
       <div>
@@ -27,26 +47,6 @@ const TaxonMap = ({ taxonKey }) => {
     Object.keys(params)
       .map(param => `${param}=${params[param]}`)
       .join('&')
-
-  useEffect(() => {
-    const fetchBoundingBox = async () => {
-      try {
-        fetch(
-          `https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=${taxonKey}&bin=hex&squareSize=128&style=classic.poly`
-        ).then(async res => {
-          const data = await res.json()
-          setBounds([
-            [data.minLat, data.minLng],
-            [data.maxLat, data.maxLng],
-          ])
-          setIsLoading(false)
-        })
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchBoundingBox()
-  }, [taxonKey])
 
   return (
     <MapContainer bounds={bounds}>
