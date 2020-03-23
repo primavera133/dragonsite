@@ -1,10 +1,19 @@
 import styled from '@emotion/styled'
 import React, { useState, useEffect } from 'react'
 import { Map as LeafletMap, TileLayer } from 'react-leaflet'
+import { isDomAvailable } from '../utils/isDomAvailable'
 
 const TaxonMap = ({ taxonKey }) => {
   const [bounds, setBounds] = useState()
   const [isLoading, setIsLoading] = useState(true)
+
+  if (!isDomAvailable()) {
+    return (
+      <div>
+        <p>Loading map...</p>
+      </div>
+    )
+  }
 
   const MapContainer = styled(LeafletMap)`
     position: absolute;
@@ -13,6 +22,7 @@ const TaxonMap = ({ taxonKey }) => {
     left: 0;
     right: 0;
   `
+
   const joinParams = params =>
     Object.keys(params)
       .map(param => `${param}=${params[param]}`)
