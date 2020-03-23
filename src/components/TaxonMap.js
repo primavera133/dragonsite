@@ -11,7 +11,7 @@ const TaxonMap = ({ taxonKey }) => {
     const fetchBoundingBox = async () => {
       try {
         fetch(
-          `https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=${taxonKey}&bin=hex&squareSize=128&style=classic.poly`
+          `https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=${taxonKey}&bin=hex&squareSize=128`
         ).then(async res => {
           const data = await res.json()
           setBounds([
@@ -62,7 +62,7 @@ const TaxonMap = ({ taxonKey }) => {
               taxonKey,
               bin: 'hex',
               squareSize: 128,
-              style: 'classic.poly',
+              style: 'orange.marker',
             })}
           />
         </>
