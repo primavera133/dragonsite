@@ -6,6 +6,7 @@ import MediaLinks from '../components/MediaLinks'
 import Search from '../components/Search'
 import FamilySpecieList from '../components/FamilySpecieList'
 import FooterContent from '../components/FooterContent'
+import DistributionMap from '../components/DistributionMap'
 
 const H1 = styled.h1`
   margin: 0;
@@ -54,6 +55,9 @@ export default ({ pageContext }) => {
       <AuthorCitation>{pageContext.author_citation}</AuthorCitation>
 
       <Markdown markup={pageContext.description} />
+
+      <h3>Distribution</h3>
+      <DistributionMap meta={pageContext.meta} />
     </Layout>
   )
 }

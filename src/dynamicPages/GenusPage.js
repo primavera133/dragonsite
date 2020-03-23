@@ -6,6 +6,8 @@ import MediaLinks from '../components/MediaLinks'
 import Search from '../components/Search'
 import GenusSpecieList from '../components/GenusSpecieList'
 import FooterContent from '../components/FooterContent'
+import DistributionMap from '../components/DistributionMap'
+
 import './genusPage.css'
 
 const converter = new Converter({ tables: true })
@@ -59,6 +61,8 @@ export default ({ pageContext }) => {
       <H1>{pageContext.title}</H1>
       <AuthorCitation>{pageContext.author_citation}</AuthorCitation>
       {converter.convert(pageContext.description)}
+      <h3>Distribution</h3>
+      <DistributionMap meta={pageContext.meta} />
     </Layout>
   )
 }

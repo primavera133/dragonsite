@@ -113,6 +113,14 @@ exports.createPages = async ({ actions, graphql }) => {
                 author_citation
                 description
                 sources
+                links {
+                  label
+                  link
+                }
+                meta {
+                  label
+                  value
+                }
               }
             }
           }
@@ -150,6 +158,14 @@ exports.createPages = async ({ actions, graphql }) => {
                 author_citation
                 description
                 sources
+                links {
+                  label
+                  link
+                }
+                meta {
+                  label
+                  value
+                }
               }
             }
           }
