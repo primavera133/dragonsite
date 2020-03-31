@@ -34,7 +34,7 @@ const DistributionMap = ({ meta }) => {
       </DistributionMapContainer>
       <Figcap>
         Distribution map. Data from{' '}
-        <a href='https://gbif.org' target='_blank' rel='noopener noreferer'>
+        <a href='https://gbif.org' target='_blank' rel='noopener noreferrer'>
           gbif.org
         </a>
       </Figcap>
