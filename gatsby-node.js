@@ -20,6 +20,7 @@ exports.createPages = async ({ actions, graphql }) => {
     query {
       dragonflies {
         genera {
+          family_name
           genus_name
           species {
             scientific_name
@@ -174,7 +175,6 @@ exports.createPages = async ({ actions, graphql }) => {
       )
       const species = familyData.dragonflies.familySpecies || []
       const aboutFamily = familyData.dragonflies.aboutFamily
-
       actions.createPage({
         path: `/families/${context.family_name}`,
         component: path.resolve('./src/dynamicPages/FamilyPage.js'),

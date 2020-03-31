@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import MediaLinks from '../components/MediaLinks'
 import Search from '../components/Search'
 import FamilySpecieList from '../components/FamilySpecieList'
+import GeneraList from '../components/GeneraList'
 import FooterContent from '../components/FooterContent'
 import DistributionMap from '../components/DistributionMap'
 
@@ -34,6 +35,10 @@ export default ({ pageContext }) => {
       }
       left={
         <>
+          <H2>
+            Genera of <FamilyName>{pageContext.family_name}</FamilyName>
+          </H2>
+          <GeneraList genera={pageContext.genera} />
           <H2>
             Species of <FamilyName>{pageContext.family_name}</FamilyName>
           </H2>
