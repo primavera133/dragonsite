@@ -62,7 +62,7 @@ const TaxonMap = ({ taxonKey }) => {
               taxonKey,
               bin: 'hex',
               squareSize: 128,
-              style: 'orange.marker',
+              style: 'green.poly',
             })}
           />
         </>
