@@ -23,11 +23,14 @@ const Figcap = styled.figcaption`
   font-size: 0.7rem;
 `
 
-const getTaxonKey = meta => meta.find(m => m.label === 'gbifTaxonKey').value
+const getTaxonKey = meta => {
+  const key = meta.find(m => m.label === 'gbifTaxonKey')
+  return key ? key.value : null
+}
 
 const DistributionMap = ({ meta }) => {
   const taxonKey = getTaxonKey(meta)
-  return (
+  return taxonKey ? (
     <Fig>
       <DistributionMapContainer>
         <TaxonMap taxonKey={taxonKey} />
@@ -39,7 +42,7 @@ const DistributionMap = ({ meta }) => {
         </a>
       </Figcap>
     </Fig>
-  )
+  ) : null
 }
 
 export default DistributionMap
