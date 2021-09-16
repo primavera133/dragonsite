@@ -3,14 +3,6 @@ import styled from '@emotion/styled'
 import cloudinary from 'cloudinary-core'
 import License from './License'
 
-const SpecieMainPlaceholder = styled.div`
-  background-color: lightgrey;
-  width: 100%;
-  height: 20rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
 const SpecieMain = styled.figure`
   img {
     margin-bottom: 0;
@@ -34,7 +26,7 @@ export default ({ pageContext }) => {
   const { images } = pageContext
   const mainImage = images ? images.all[0] : null
   if (!mainImage) {
-    return <SpecieMainPlaceholder />
+    return null ;
   }
 
   const cl = new cloudinary.Cloudinary({
