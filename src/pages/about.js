@@ -37,10 +37,12 @@ export default ({ data }) => (
       <li>Nordens trollsländor, M. Billqvist, D. Andersson, C. Bergendorff</li>
     </ul>
     <p>These are all excellent books, go get them if you don't have them.</p>
-    <h2>Work in progress</h2>
+    <h2>Contribute</h2>
     <p>
-      This is a work in progress, not many species are covered yet. If you like
-      to contribute, please contact jonas@myrenas.se for details on how to help.
+      This is a work in continuous progress. Help with proof-reading and editing descriptions is appreciated.
+      Finding good images is also something I would appreciate help with. All images need to have usable licenses, Creative Commons or equivalent.
+      
+      If you would like to contribute, please contact jonas@myrenas.se.
     </p>
   </Layout>
 )
