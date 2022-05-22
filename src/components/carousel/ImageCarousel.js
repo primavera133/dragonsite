@@ -55,7 +55,7 @@ export const ImageCarousel = ({ pageContext }) => {
   const caption = pageContext.scientific_name
   const images = formatImageData({ images: pageContext.images, caption })
 
-  const toggleLightbox = selectedIndex => {
+  const toggleLightbox = (selectedIndex) => {
     setLightboxOpen(!isLightboxOpen)
     setSelectedIndex(selectedIndex)
   }
@@ -73,8 +73,10 @@ export const ImageCarousel = ({ pageContext }) => {
       {isLightboxOpen && (
         <Lightbox
           mainSrc={images[selectedIndex].src}
-          nextSrc={images[(selectedIndex + 1) % images.length]}
-          prevSrc={images[(selectedIndex + images.length - 1) % images.length]}
+          nextSrc={images[(selectedIndex + 1) % images.length].src}
+          prevSrc={
+            images[(selectedIndex + images.length - 1) % images.length].src
+          }
           onCloseRequest={() => setLightboxOpen(false)}
           onMovePrevRequest={() =>
             setSelectedIndex(

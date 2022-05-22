@@ -1,21 +1,20 @@
 import React from 'react'
 import { Markdown } from 'react-showdown'
 
-import Layout from '../components/Layout'
-import SpecieNames from '../components/SpecieNames'
-import SpecieMain from '../components/SpecieMain'
-import Distribution from '../components/Distribution'
-import DistributionMap from '../components/DistributionMap'
-import SimilarSpecies from '../components/SimilarSpecies'
-import RedListStatus from '../components/RedListStatus'
-import FlightPeriod from '../components/FlightPeriod'
-import MediaLinks from '../components/MediaLinks'
-// import ReportLinks from '../components/ReportLinks'
-import Search from '../components/Search'
+import { Layout } from '../components/Layout'
+import { SpecieMain } from '../components/SpecieMain'
+import { SpecieNames } from '../components/SpecieNames'
+import { Distribution } from '../components/Distribution'
+import { DistributionMap } from '../components/DistributionMap'
+import { SimilarSpecies } from '../components/SimilarSpecies'
+import { RedListStatus } from '../components/RedListStatus'
+import { FlightPeriod } from '../components/FlightPeriod'
+import { MediaLinks } from '../components/MediaLinks'
+import { Search } from '../components/Search'
 import { ImageCarousel } from '../components/carousel/ImageCarousel'
-import FooterContent from '../components/FooterContent'
+import { FooterContent } from '../components/FooterContent'
 
-export default ({ pageContext }) => {
+const SpeciePage = ({ pageContext }) => {
   return (
     <Layout
       head={
@@ -33,7 +32,6 @@ export default ({ pageContext }) => {
       right={
         <>
           <MediaLinks pageContext={pageContext} />
-          {/* <ReportLinks pageContext={pageContext} /> */}
         </>
       }
       footer={
@@ -57,3 +55,5 @@ export default ({ pageContext }) => {
     </Layout>
   )
 }
+
+export default SpeciePage

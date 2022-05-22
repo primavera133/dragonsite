@@ -1,17 +1,17 @@
 import React from 'react'
-import { Converter } from 'react-showdown'
+import MarkdownView from 'react-showdown'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import Layout from '../components/Layout'
-import MediaLinks from '../components/MediaLinks'
-import Search from '../components/Search'
-import GenusSpecieList from '../components/GenusSpecieList'
-import FooterContent from '../components/FooterContent'
-import DistributionMap from '../components/DistributionMap'
+import { Layout } from '../components/Layout'
+import { MediaLinks } from '../components/MediaLinks'
+import { Search } from '../components/Search'
+import { GenusSpecieList } from '../components/GenusSpecieList'
+import { FooterContent } from '../components/FooterContent'
+import { DistributionMap } from '../components/DistributionMap'
 
 import './genusPage.css'
 
-const converter = new Converter({ tables: true })
+const markdownOptions = { tables: true }
 
 const H1 = styled.h1`
   margin: 0;
@@ -34,7 +34,7 @@ const Family = styled(Link)`
   text-transform: capitalize;
 `
 
-export default ({ pageContext }) => {
+const GenusPage = ({ pageContext }) => {
   return (
     <Layout
       head={
@@ -67,13 +67,18 @@ export default ({ pageContext }) => {
           <FooterContent pageContext={pageContext} />
         </>
       }
-      wrapperNamespace='genus-page'
+      wrapperNamespace="genus-page"
     >
       <H1>{pageContext.title}</H1>
       <AuthorCitation>{pageContext.author_citation}</AuthorCitation>
-      {converter.convert(pageContext.description)}
+      <MarkdownView
+        markdown={pageContext.description}
+        options={markdownOptions}
+      />
       <h3>Distribution</h3>
       <DistributionMap meta={pageContext.meta} />
     </Layout>
   )
 }
+
+export default GenusPage

@@ -2,11 +2,11 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import Helmet from 'react-helmet'
-import Header from './Header'
+import { Header } from './Header'
 
 import './layout.css'
 
-export default ({ head, left, right, children }) => {
+export const LayoutOne = ({ head, left, right, children }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -46,8 +46,8 @@ export default ({ head, left, right, children }) => {
     <Wrapper>
       <Helmet>
         <link
-          rel='stylesheet'
-          href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
         />
       </Helmet>
       <Header title={data.site.siteMetadata.title}>{head}</Header>

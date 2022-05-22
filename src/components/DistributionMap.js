@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import TaxonMap from './TaxonMap'
+import { TaxonMap } from './TaxonMap'
 
 const DistributionMapContainer = styled.div`
   width: 100%;
@@ -23,12 +23,12 @@ const Figcap = styled.figcaption`
   font-size: 0.7rem;
 `
 
-const getTaxonKey = meta => {
-  const key = meta.find(m => m.label === 'gbifTaxonKey')
+const getTaxonKey = (meta) => {
+  const key = meta.find((m) => m.label === 'gbifTaxonKey')
   return key ? key.value : null
 }
 
-const DistributionMap = ({ meta }) => {
+export const DistributionMap = ({ meta }) => {
   const taxonKey = getTaxonKey(meta)
   return taxonKey ? (
     <Fig>
@@ -37,12 +37,10 @@ const DistributionMap = ({ meta }) => {
       </DistributionMapContainer>
       <Figcap>
         Distribution map. Data from{' '}
-        <a href='https://gbif.org' target='_blank' rel='noopener noreferrer'>
+        <a href="https://gbif.org" target="_blank" rel="noopener noreferrer">
           gbif.org
         </a>
       </Figcap>
     </Fig>
   ) : null
 }
-
-export default DistributionMap

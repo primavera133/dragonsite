@@ -73,7 +73,7 @@ const HexImg = styled.div`
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 `
 
-const SpecieHex = () => {
+export const LogoHexagon = () => {
   const imgUrl =
     'https://res.cloudinary.com/dragonflies/image/upload/c_crop,h_1556,w_1556/c_scale,h_300,w_300/v1578334562/dragonflies/onychogomphus_cecilia_o_bei16b.jpg'
 
@@ -91,5 +91,3 @@ const SpecieHex = () => {
     </HexItem>
   )
 }
-
-export default SpecieHex

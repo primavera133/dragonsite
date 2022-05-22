@@ -1,10 +1,10 @@
 import React from 'react'
-import DefinitionList from '../components/DefinitionList'
-import DefinitionItem from '../components/DefinitionItem'
-import Topic from '../components/Topic'
-import Definition from '../components/Definition'
+import { DefinitionList } from '../components/DefinitionList'
+import { DefinitionItem } from '../components/DefinitionItem'
+import { Topic } from '../components/Topic'
+import { Definition } from '../components/Definition'
 
-export default ({ pageContext }) => {
+export const RedListStatus = ({ pageContext }) => {
   return (
     <>
       <h2>Red list status</h2>

@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 import React, { useState, useEffect } from 'react'
-import { Map as LeafletMap, TileLayer } from 'react-leaflet'
+import { MapContainer, TileLayer } from 'react-leaflet'
 import { isDomAvailable } from '../utils/isDomAvailable'
 
-const TaxonMap = ({ taxonKey }) => {
+export const TaxonMap = ({ taxonKey }) => {
   const [bounds, setBounds] = useState()
   const [isLoading, setIsLoading] = useState(true)
 
@@ -12,7 +12,7 @@ const TaxonMap = ({ taxonKey }) => {
       try {
         fetch(
           `https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=${taxonKey}&bin=hex&squareSize=128`
-        ).then(async res => {
+        ).then(async (res) => {
           const data = await res.json()
           setBounds([
             [data.minLat, data.minLng],
@@ -35,7 +35,7 @@ const TaxonMap = ({ taxonKey }) => {
     )
   }
 
-  const MapContainer = styled(LeafletMap)`
+  const MapContainerStyled = styled(MapContainer)`
     position: absolute;
     top: 0;
     bottom: 0;
@@ -43,21 +43,21 @@ const TaxonMap = ({ taxonKey }) => {
     right: 0;
   `
 
-  const joinParams = params =>
+  const joinParams = (params) =>
     Object.keys(params)
-      .map(param => `${param}=${params[param]}`)
+      .map((param) => `${param}=${params[param]}`)
       .join('&')
 
   return (
-    <MapContainer bounds={bounds}>
+    <MapContainerStyled bounds={bounds}>
       {!isLoading && (
         <>
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
+            url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
           />
           <TileLayer
-            url='https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?{params}'
+            url="https://api.gbif.org/v2/map/occurrence/density/{z}/{x}/{y}@1x.png?{params}"
             params={joinParams({
               taxonKey,
               bin: 'hex',
@@ -67,8 +67,6 @@ const TaxonMap = ({ taxonKey }) => {
           />
         </>
       )}
-    </MapContainer>
+    </MapContainerStyled>
   )
 }
-
-export default TaxonMap

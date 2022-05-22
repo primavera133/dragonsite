@@ -1,23 +1,20 @@
 import React from 'react'
-import styled from '@emotion/styled'
 
-const MediaLinks = styled.div``
-
-export default ({ pageContext }) => {
+export const MediaLinks = ({ pageContext }) => {
   return (
     (pageContext.links && (
-      <MediaLinks>
+      <div>
         <h4>Links</h4>
         <ul>
           {pageContext.links.map((link, idx) => (
             <li key={`link${idx}`}>
-              <a href={link.link} target='_blank' rel='noopener noreferrer'>
+              <a href={link.link} target="_blank" rel="noopener noreferrer">
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
-      </MediaLinks>
+      </div>
     )) ||
     null
   )

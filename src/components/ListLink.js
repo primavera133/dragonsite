@@ -14,7 +14,7 @@ const LiInline = styled(Li)`
   }
 `
 
-const ListLink = props => {
+export const ListLink = (props) => {
   if (props.inline) {
     return (
       <LiInline>
@@ -29,5 +29,3 @@ const ListLink = props => {
     )
   }
 }
-
-export default ListLink

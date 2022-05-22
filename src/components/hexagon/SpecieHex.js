@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import getColor from './getColor'
+import { getColor } from './getColor'
 
 const HexItem = styled.li`
   position: relative;
@@ -217,7 +217,7 @@ const HexText = styled.p`
   text-align: center;
 `
 
-const SpecieHex = ({ scientific_name, localNames, family, images }) => {
+export const SpecieHex = ({ scientific_name, localNames, family, images }) => {
   const img = images.all ? images.all[0] : null
   let imgUrl =
     'https://res.cloudinary.com/dragonflies/image/upload/c_fill,w_128,h_128/v1/dragonflies/libellula-bw_ozhigo.png'
@@ -243,5 +243,3 @@ const SpecieHex = ({ scientific_name, localNames, family, images }) => {
     </HexItem>
   )
 }
-
-export default SpecieHex

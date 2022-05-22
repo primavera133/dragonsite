@@ -3,9 +3,16 @@ import { useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import Helmet from 'react-helmet'
 import './layout.css'
-import Header from './Header'
+import { Header } from './Header'
 
-export default ({ head, left, right, children, footer, wrapperNamespace }) => {
+export const Layout = ({
+  head,
+  left,
+  right,
+  children,
+  footer,
+  wrapperNamespace,
+}) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -74,14 +81,14 @@ export default ({ head, left, right, children, footer, wrapperNamespace }) => {
       <Wrapper className={wrapperNamespace}>
         <Helmet>
           <link
-            rel='stylesheet'
-            href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
           />
           <link
-            rel='stylesheet'
-            href='https://unpkg.com/leaflet@1.6.0/dist/leaflet.css'
-            integrity='sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=='
-            crossorigin=''
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+            integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+            crossorigin=""
           />
         </Helmet>
         <Header title={data.site.siteMetadata.title}>{head}</Header>

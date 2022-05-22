@@ -40,7 +40,7 @@ const AnimatedMessage = styled(animated.div)`
   ${MessageStyle}
 `
 
-export default ({ children }) => {
+export const StartpageMessage = ({ children }) => {
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
   const Elem = prefersReducedMotion ? Message : AnimatedMessage
   const [cardRef, { width: cardWidth, height: cardHeight }] = useMeasure({
@@ -72,7 +72,7 @@ export default ({ children }) => {
     }, 800)
   })
 
-  const handleMouseMove = e => {
+  const handleMouseMove = (e) => {
     const { offsetX: mouseX, offsetY: mouseY } = e.nativeEvent
     set({
       x: (mouseX * 2) / cardWidth - 1,
@@ -104,13 +104,13 @@ export default ({ children }) => {
         ),
       }}
     >
-      <svg viewBox='0 0 56 18'>
+      <svg viewBox="0 0 56 18">
         <text
-          x='50%'
-          y='50%'
-          textAnchor='middle'
-          alignmentBaseline='central'
-          fill='white'
+          x="50%"
+          y="50%"
+          textAnchor="middle"
+          alignmentBaseline="central"
+          fill="white"
         >
           {children}
         </text>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import StartPageMessage from './StartPageMessage'
+import { StartpageMessage } from './StartpageMessage'
 
 const HexItem = styled.li`
   position: relative;
@@ -117,7 +117,7 @@ const HexImg = styled.div`
   }
 `
 
-const SpecieHex = ({ images, link, message }) => {
+export const StartpageHexagon = ({ images, link, message }) => {
   const imgUrl = images.large
 
   return (
@@ -129,11 +129,9 @@ const SpecieHex = ({ images, link, message }) => {
               backgroundImage: `url(${imgUrl})`,
             }}
           ></HexImg>
-          <StartPageMessage>{message}</StartPageMessage>
+          <StartpageMessage>{message}</StartpageMessage>
         </HexLink>
       </HexInner>
     </HexItem>
   )
 }
-
-export default SpecieHex
