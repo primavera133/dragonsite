@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
+import React  from 'react'
 import styled from '@emotion/styled'
-import { useSpring, animated, interpolate } from 'react-spring'
+import { useSpring, animated, to } from 'react-spring'
 import useMeasure from 'react-use-measure'
 import useMediaQuery from '../utils/hooks/useMediaQuery'
 import { ResizeObserver } from '@juggle/resize-observer'
-import random from '../utils/random'
 
 const MessageStyle = `
 position: absolute;
@@ -58,20 +57,6 @@ export const StartpageMessage = ({ children }) => {
     },
   }))
 
-  useEffect(() => {
-    setTimeout(() => {
-      set({ x: random(-0.5, 0.5), y: random(-0.8, 0.8) })
-    }, 400)
-
-    setTimeout(() => {
-      set({ x: random(-0.5, 0.5), y: random(-0.8, 0.8) })
-    }, 600)
-
-    setTimeout(() => {
-      set({ x: 0, y: 0 })
-    }, 800)
-  })
-
   const handleMouseMove = (e) => {
     const { offsetX: mouseX, offsetY: mouseY } = e.nativeEvent
     set({
@@ -91,12 +76,12 @@ export const StartpageMessage = ({ children }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        transform: interpolate(
+        transform: to(
           [
-            x.interpolate([-1, 0, 1], [-15, 0, 15]),
-            y.interpolate([-1, 0, 1], [15, 0, -15]),
-            x.interpolate([-1, 0, 1], [5, 0, -5]),
-            y.interpolate([-1, 0, 1], [10, 0, -10]),
+            x.to([-1, 0, 1], [-15, 0, 15]),
+            y.to([-1, 0, 1], [15, 0, -15]),
+            x.to([-1, 0, 1], [5, 0, -5]),
+            y.to([-1, 0, 1], [10, 0, -10]),
             scale,
           ],
           (degX, degY, transX, transY, skejl) =>
