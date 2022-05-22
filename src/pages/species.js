@@ -5,7 +5,7 @@ import { LayoutOne } from '../components/LayoutOne'
 import { Search } from '../components/Search'
 import { HexagonGrid } from '../components/hexagon/HexagonGrid'
 
-export default ({ data }) => {
+const Species = ({ data }) => {
   return (
     <LayoutOne
       head={
@@ -49,3 +49,4 @@ export const query = graphql`
     }
   }
 `
+export default Species

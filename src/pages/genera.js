@@ -5,7 +5,7 @@ import { LayoutOne } from '../components/LayoutOne'
 import { Search } from '../components/Search'
 import { GeneraList } from '../components/GeneraList'
 
-export default ({ data }) => {
+const Genera = ({ data }) => {
   const genera = data.dragonflies.genera.sort((a, b) => {
     if (a.genus_name < b.genus_name) return -1
     if (a.genus_name > b.genus_name) return 1
@@ -40,3 +40,4 @@ export const query = graphql`
     }
   }
 `
+export default Genera

@@ -5,7 +5,7 @@ import { LayoutOne } from '../components/LayoutOne'
 import { Search } from '../components/Search'
 import { FamiliesList } from '../components/FamiliesList'
 
-export default ({ data }) => {
+const Families = ({ data }) => {
   const families = data.dragonflies.taxonomy.families.sort((a, b) => {
     if (a.family_name < b.family_name) return -1
     if (a.family_name > b.family_name) return 1
@@ -42,3 +42,4 @@ export const query = graphql`
     }
   }
 `
+export default Families
