@@ -26,7 +26,7 @@ export const SpecieMain = ({ pageContext }) => {
   const { images } = pageContext
   const mainImage = images ? images.all[0] : null
   if (!mainImage) {
-    return null
+    return null;
   }
 
   const cl = new cloudinary.Cloudinary({
