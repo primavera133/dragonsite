@@ -87,12 +87,12 @@ exports.createPages = async ({ actions, graphql }) => {
   `)
 
   const names = []
-  data.dragonflies.species.forEach(specie => {
+  data.dragonflies.species.forEach((specie) => {
     names.push([specie.scientific_name, specie.scientific_name])
-    specie.local_names.forEach(ln => names.push([ln, specie.scientific_name]))
+    specie.local_names.forEach((ln) => names.push([ln, specie.scientific_name]))
   })
 
-  data.dragonflies.species.forEach(context => {
+  data.dragonflies.species.forEach((context) => {
     actions.createPage({
       path: `/species/${context.scientific_name}/`,
       component: path.resolve(`./src/dynamicPages/SpeciePage.js`),
@@ -104,7 +104,7 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 
   await Promise.all(
-    data.dragonflies.genera.map(async context => {
+    data.dragonflies.genera.map(async (context) => {
       const { data: genusData } = await graphql(
         `
           query aboutGenus($genus_name: String!) {
@@ -145,7 +145,7 @@ exports.createPages = async ({ actions, graphql }) => {
   )
 
   await Promise.all(
-    data.dragonflies.taxonomy.families.map(async context => {
+    data.dragonflies.taxonomy.families.map(async (context) => {
       const { data: familyData } = await graphql(
         `
           query GetFamilySpecies($family_name: String!) {

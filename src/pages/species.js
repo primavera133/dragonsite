@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { getNamesList } from '../utils/getNamesList'
-import LayoutOne from '../components/LayoutOne'
-import Search from '../components/Search'
-import HexagonGrid from '../components/hexagon/HexagonGrid'
+import { LayoutOne } from '../components/LayoutOne'
+import { Search } from '../components/Search'
+import { HexagonGrid } from '../components/hexagon/HexagonGrid'
 
-export default ({ data }) => {
+const Species = ({ data }) => {
   return (
     <LayoutOne
       head={
@@ -49,3 +49,4 @@ export const query = graphql`
     }
   }
 `
+export default Species

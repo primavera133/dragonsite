@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { getNamesList } from '../utils/getNamesList'
-import Layout from '../components/Layout'
-import Search from '../components/Search'
+import { Layout } from '../components/Layout'
+import { Search } from '../components/Search'
 
 export default ({ data }) => (
   <Layout
@@ -17,7 +17,7 @@ export default ({ data }) => (
       This is a site about the dragonflies of Europe. The data for the site
       comes from this API: https://dragonsgraphqlapi.jonasmyrenas.now.sh/. The
       code for this site is open source and can be found on{' '}
-      <a href='https://github.com/primavera133/dragonsite'>Github</a>
+      <a href="https://github.com/primavera133/dragonsite">Github</a>
     </p>
     <h2>Main sources</h2>
     <ul>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import SpecieHex from './SpecieHex'
+import { SpecieHex } from './SpecieHex'
 
 const Grid = styled.ul`
   display: flex;
@@ -42,11 +42,11 @@ const Grid = styled.ul`
   }
 `
 
-const HexagonGrid = ({ families }) => (
+export const HexagonGrid = ({ families }) => (
   <Grid>
-    {families.map(fam =>
-      fam.genera.map(gen =>
-        gen.species.map(sp => (
+    {families.map((fam) =>
+      fam.genera.map((gen) =>
+        gen.species.map((sp) => (
           <SpecieHex
             scientific_name={sp.scientific_name}
             family={fam.family_name}
@@ -60,5 +60,3 @@ const HexagonGrid = ({ families }) => (
     )}
   </Grid>
 )
-
-export default HexagonGrid

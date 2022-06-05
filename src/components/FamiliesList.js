@@ -1,8 +1,7 @@
 import React from 'react'
-// import styled from '@emotion/styled'
-import ListLink from './ListLink'
+import { ListLink } from './ListLink'
 
-export default ({ families }) => (
+export const FamiliesList = ({ families }) => (
   <ul>
     {families.map((fam, idx) => (
       <ListLink to={`/families/${fam.family_name}`} key={`fam_${idx}`}>

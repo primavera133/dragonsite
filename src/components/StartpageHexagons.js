@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import StartpageHexagon from './StartpageHexagon'
+import { StartpageHexagon } from './StartpageHexagon'
 
 const species = [
   {
@@ -67,10 +67,10 @@ const Grid = styled.ul`
   font-size: 14px;
 `
 
-export default () => {
+export const StartpageHexagons = () => {
   return (
     <Grid>
-      {species.map(sp => (
+      {species.map((sp) => (
         <StartpageHexagon
           images={sp.images}
           key={`hex_${sp.items_id}`}

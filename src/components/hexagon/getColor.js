@@ -89,7 +89,7 @@ const palette = [
   }
 ]
 
-const getColor = family => {
+export const getColor = family => {
   if (cache[family]) {
     return cache[family]
   }
@@ -100,5 +100,3 @@ const getColor = family => {
 
   return color
 }
-
-export default getColor

@@ -1,21 +1,27 @@
-import React from 'react'
+import * as React from 'react'
+
+import { Seo } from '../components/Seo'
+
 import { graphql } from 'gatsby'
 import { getNamesList } from '../utils/getNamesList'
-import Layout from '../components/LayoutOne'
-import Search from '../components/Search'
-import StartpageHexagons from '../components/StartpageHexagons'
+import { LayoutOne } from '../components/LayoutOne'
+import { Search } from '../components/Search'
+import { StartpageHexagons } from '../components/StartpageHexagons'
 
-export default ({ data }) => {
+const IndexPage = ({ data }) => {
   return (
-    <Layout
-      head={
-        <>
-          <Search names={getNamesList(data.dragonflies.species)} />
-        </>
-      }
-    >
-      <StartpageHexagons></StartpageHexagons>
-    </Layout>
+    <>
+      <Seo title="Home" />
+      <LayoutOne
+        head={
+          <>
+            <Search names={getNamesList(data.dragonflies.species)} />
+          </>
+        }
+      >
+        <StartpageHexagons></StartpageHexagons>
+      </LayoutOne>
+    </>
   )
 }
 
@@ -35,3 +41,5 @@ export const query = graphql`
     }
   }
 `
+
+export default IndexPage

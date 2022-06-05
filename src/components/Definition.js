@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-const Definition = styled.dd`
+const DD = styled.dd`
   flex: 0 1 auto;
   margin: 0;
   order: 3;
@@ -10,4 +10,4 @@ const Definition = styled.dd`
   align-items: center;
 `
 
-export default ({ children }) => <Definition>{children}</Definition>
+export const Definition = ({ children }) => <DD>{children}</DD>

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Markdown } from 'react-showdown'
 
-const FooterContent = styled.footer`
+const FC = styled.footer`
   font-size: 0.8rem;
 
   padding: 2rem 1rem;
@@ -12,9 +12,9 @@ const FooterContent = styled.footer`
   }
 `
 
-export default ({ pageContext }) => {
+export const FooterContent = ({ pageContext }) => {
   return (
-    <FooterContent>
+    <FC>
       <h4>Sources</h4>
       {pageContext.sources && (
         <ul>
@@ -25,6 +25,6 @@ export default ({ pageContext }) => {
           ))}
         </ul>
       )}
-    </FooterContent>
+    </FC>
   )
 }

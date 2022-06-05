@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import ListLink from './ListLink'
-import LogoHexagon from './LogoHexagon'
+import { ListLink } from './ListLink'
+import { LogoHexagon } from './LogoHexagon'
 
-const Header = styled.header`
+const HeaderOuter = styled.header`
   grid-area: header;
   margin-bottom: 1.5rem;
   display: flex;
@@ -102,9 +102,9 @@ const MenuList = styled.ul`
   }
 `
 
-export default ({ title, children }) => {
+export const Header = ({ title, children }) => {
   return (
-    <Header>
+    <HeaderOuter>
       <HeaderWrapper>
         <LogoHexagon />
         {/* <Libellula src='/libellula-bw.png' alt='libellula' /> */}
@@ -116,23 +116,23 @@ export default ({ title, children }) => {
 
       <Menu>
         <MenuList>
-          <ListLink inline to='/'>
+          <ListLink inline to="/">
             Home
           </ListLink>
-          <ListLink inline to='/families/'>
+          <ListLink inline to="/families/">
             Families
           </ListLink>
-          <ListLink inline to='/genera/'>
+          <ListLink inline to="/genera/">
             Genera
           </ListLink>
-          <ListLink inline to='/species/'>
+          <ListLink inline to="/species/">
             Species
           </ListLink>
-          <ListLink inline to='/about/'>
+          <ListLink inline to="/about/">
             About
           </ListLink>
         </MenuList>
       </Menu>
-    </Header>
+    </HeaderOuter>
   )
 }

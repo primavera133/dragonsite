@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-const Topic = styled.dt`
+const DT = styled.dt`
   flex: 0 1 auto;
   margin: 0;
   order: 1;
@@ -9,4 +9,4 @@ const Topic = styled.dt`
   align-items: center;
 `
 
-export default ({ children }) => <Topic>{children}</Topic>
+export const Topic = ({ children }) => <DT>{children}</DT>

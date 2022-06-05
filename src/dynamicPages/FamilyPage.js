@@ -1,13 +1,13 @@
 import React from 'react'
 import { Markdown } from 'react-showdown'
 import styled from '@emotion/styled'
-import Layout from '../components/Layout'
-import MediaLinks from '../components/MediaLinks'
-import Search from '../components/Search'
-import FamilySpecieList from '../components/FamilySpecieList'
-import GeneraList from '../components/GeneraList'
-import FooterContent from '../components/FooterContent'
-import DistributionMap from '../components/DistributionMap'
+import { Layout } from '../components/Layout'
+import { MediaLinks } from '../components/MediaLinks'
+import { Search } from '../components/Search'
+import { FamilySpecieList } from '../components/FamilySpecieList'
+import { GeneraList } from '../components/GeneraList'
+import { FooterContent } from '../components/FooterContent'
+import { DistributionMap } from '../components/DistributionMap'
 
 const H1 = styled.h1`
   margin: 0;
@@ -25,7 +25,7 @@ const FamilyName = styled.span`
   text-transform: capitalize;
 `
 
-export default ({ pageContext }) => {
+const FamilyPage = ({ pageContext }) => {
   return (
     <Layout
       head={
@@ -66,3 +66,5 @@ export default ({ pageContext }) => {
     </Layout>
   )
 }
+
+export default FamilyPage

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import cloudinary from 'cloudinary-core'
-import License from './License'
+import { License } from './License'
 
-const SpecieMain = styled.figure`
+const SpecieMainFigure = styled.figure`
   img {
     margin-bottom: 0;
   }
@@ -22,42 +22,31 @@ const Caption = styled.div`
 `
 const SubCaption = styled.div``
 
-export default ({ pageContext }) => {
+export const SpecieMain = ({ pageContext }) => {
   const { images } = pageContext
   const mainImage = images ? images.all[0] : null
   if (!mainImage) {
-    return null ;
+    return null;
   }
 
   const cl = new cloudinary.Cloudinary({
     cloud_name: images.cloud_name,
-    secure: true
+    secure: true,
   })
 
   const srcSets = [
-    375,
-    509,
-    622,
-    717,
-    812,
-    899,
-    980,
-    1061,
-    1139,
-    1216,
-    1293,
-    1360
+    375, 509, 622, 717, 812, 899, 980, 1061, 1139, 1216, 1293, 1360,
   ]
   const srcSet = srcSets
     .map(
-      s => `${cl.url(mainImage.public_id, { width: s, crop: 'scale' })} ${s}w`
+      (s) => `${cl.url(mainImage.public_id, { width: s, crop: 'scale' })} ${s}w`
     )
     .join(',')
 
   return (
-    <SpecieMain>
+    <SpecieMainFigure>
       <img
-        sizes='(max-width: 1360px) 100vw, 1360px'
+        sizes="(max-width: 1360px) 100vw, 1360px"
         srcSet={srcSet}
         src={`${cl.url(mainImage.public_id, { width: 1360, crop: 'scale' })}`}
         alt={pageContext.scientific_name}
@@ -70,8 +59,8 @@ export default ({ pageContext }) => {
               Photo:{' '}
               <NameLink
                 href={mainImage.url}
-                target='_blank'
-                rel='noreferrer noopener'
+                target="_blank"
+                rel="noreferrer noopener"
               >
                 {mainImage.by}
               </NameLink>
@@ -81,6 +70,6 @@ export default ({ pageContext }) => {
           <License license={mainImage.license} url={mainImage.lic_url} />
         </SubCaption>
       </SpecieMainFigCap>
-    </SpecieMain>
+    </SpecieMainFigure>
   )
 }

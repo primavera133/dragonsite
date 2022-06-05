@@ -1,57 +1,64 @@
-let activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+const activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development'
 
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${activeEnv}`,
 })
 
 module.exports = {
   siteMetadata: {
     title: `Dragonfly Guide`,
+    description: `Dragonflies of Europe.`,
+    author: `Jonas Myrenås`,
+    siteUrl: `https://dragonfly.guide`,
   },
   plugins: [
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
-        typeName: "DFAPI",
-        fieldName: "dragonflies",
-        url: "https://dragonsgraphqlapi.jonasmyrenas.now.sh/api",
+        typeName: 'DFAPI',
+        fieldName: 'dragonflies',
+        url: 'https://dragonsgraphqlapi-jonasmyrenas.vercel.app/api',
         headers: {
-          authorization: process.env.AUTH_KEY,
+          authorization: `Bearer ${process.env.AUTH_KEY}`,
         },
       },
     },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        pathToConfigModule: `src/typography`,
       },
     },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Dragonfly.guide",
-        short_name: "Dragonfly.guide",
-        start_url: "/",
-        background_color: "#3296a4",
-        theme_color: "#3296a4",
-        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: "standalone",
-        icon: "src/images/icon.png", // This path is relative to the root of the site.
-        cache_busting_mode: `name`,
-        // An optional attribute which provides support for CORS check.
-        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
-        // Any invalid keyword or empty string defaults to `anonymous`
-        crossOrigin: `use-credentials`,
+        name: `dragonfly.guide.v2`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        // This will impact how browsers show your PWA/website
+        // https://css-tricks.com/meta-theme-color-and-trickery/
+        // theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [`/about/`, `/species/`, `/species/*`],
-      },
-    },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
+
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

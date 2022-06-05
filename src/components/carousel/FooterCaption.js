@@ -1,6 +1,6 @@
 import React from 'react'
 import { Author } from '../Author'
-import License from '../License'
+import { License } from '../License'
 import styled from '@emotion/styled'
 
 const Span = styled.span`
@@ -25,7 +25,7 @@ export const FooterCaption = ({ currentView, isModal }) => {
         <Author
           href={author.url}
           target={author.url ? '_blank' : null}
-          rel='noreferrer noopener'
+          rel="noreferrer noopener"
           isModal={isModal}
         >
           {author.by}
