@@ -3,6 +3,6 @@ import { Markdown } from 'react-showdown'
 
 export const Distribution = ({ pageContext }) => (
   <div>
-    <Markdown markup={pageContext.Distribution} />
+    <Markdown markup={pageContext.distribution} />
   </div>
 )
