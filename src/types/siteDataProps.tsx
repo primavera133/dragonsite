@@ -1,5 +1,5 @@
-import { Dragonflies } from './dragonflies'
+import { Query } from './gql-types'
 
 export type SiteDataProps = {
-  dragonflies: Dragonflies
+  dragonflies: Query
 }

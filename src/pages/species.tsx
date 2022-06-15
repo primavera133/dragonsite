@@ -1,19 +1,14 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { PageProps, graphql } from 'gatsby'
+import { SiteDataProps } from '../types/siteDataProps'
 import { getNamesList } from '../utils/getNamesList'
 import { LayoutOne } from '../components/LayoutOne'
 import { Search } from '../components/Search'
 import { HexagonGrid } from '../components/hexagon/HexagonGrid'
 
-const Species = ({ data }) => {
+const Species: React.FC<PageProps<SiteDataProps>> = ({ data }) => {
   return (
-    <LayoutOne
-      head={
-        <>
-          <Search names={getNamesList(data.dragonflies.species)} />
-        </>
-      }
-    >
+    <LayoutOne head={<Search names={getNamesList(data.dragonflies.species)} />}>
       <HexagonGrid families={data.dragonflies.taxonomy.families} />
     </LayoutOne>
   )

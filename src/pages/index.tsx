@@ -2,22 +2,19 @@ import * as React from 'react'
 
 import { Seo } from '../components/Seo'
 
-import { graphql } from 'gatsby'
+import { PageProps, graphql } from 'gatsby'
+import { SiteDataProps } from '../types/siteDataProps'
 import { getNamesList } from '../utils/getNamesList'
 import { LayoutOne } from '../components/LayoutOne'
 import { Search } from '../components/Search'
 import { StartpageHexagons } from '../components/StartpageHexagons'
 
-const IndexPage = ({ data }) => {
+const IndexPage: React.FC<PageProps<SiteDataProps>> = ({ data }) => {
   return (
     <>
       <Seo title="Home" />
       <LayoutOne
-        head={
-          <>
-            <Search names={getNamesList(data.dragonflies.species)} />
-          </>
-        }
+        head={<Search names={getNamesList(data.dragonflies.species)} />}
       >
         <StartpageHexagons></StartpageHexagons>
       </LayoutOne>

@@ -8,7 +8,7 @@ import './layout.css'
 
 type LayoutOneProps = {
   head?: JSX.Element
-  children?: JSX.Element[]
+  children?: JSX.Element[] | JSX.Element
 }
 
 export const LayoutOne = ({ head, children }: LayoutOneProps) => {

@@ -1,11 +1,12 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { PageProps, graphql } from 'gatsby'
+import { SiteDataProps } from '../types/siteDataProps'
 import { getNamesList } from '../utils/getNamesList'
 import { LayoutOne } from '../components/LayoutOne'
 import { Search } from '../components/Search'
 import { GeneraList } from '../components/GeneraList'
 
-const Genera = ({ data }) => {
+const Genera: React.FC<PageProps<SiteDataProps>> = ({ data }) => {
   const genera = data.dragonflies.genera.sort((a, b) => {
     if (a.genus_name < b.genus_name) return -1
     if (a.genus_name > b.genus_name) return 1
