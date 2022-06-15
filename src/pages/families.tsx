@@ -1,11 +1,13 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { PageProps, graphql } from 'gatsby'
+import { SiteDataProps } from '../types/siteDataProps'
+
 import { getNamesList } from '../utils/getNamesList'
 import { LayoutOne } from '../components/LayoutOne'
 import { Search } from '../components/Search'
 import { FamiliesList } from '../components/FamiliesList'
 
-const Families = ({ data }) => {
+const Families: React.FC<PageProps<SiteDataProps>> = ({ data }) => {
   const families = data.dragonflies.taxonomy.families.sort((a, b) => {
     if (a.family_name < b.family_name) return -1
     if (a.family_name > b.family_name) return 1

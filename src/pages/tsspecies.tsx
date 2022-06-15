@@ -1,12 +1,8 @@
 import React from 'react'
-import { PageProps, Link, graphql } from "gatsby"
-import { Dragonflies } from '../types/dragonflies'
+import { PageProps, Link, graphql } from 'gatsby'
+import { SiteDataProps } from '../types/siteDataProps'
 
-type DataProps = {
-  dragonflies: Dragonflies
-}
-
-const Species : React.FC<PageProps<DataProps>> = ({ data }) => {
+const Species: React.FC<PageProps<SiteDataProps>> = ({ data }) => {
   return (
     <>
       <h1>Species</h1>
@@ -21,7 +17,7 @@ const Species : React.FC<PageProps<DataProps>> = ({ data }) => {
   )
 }
 
-export default Species;
+export default Species
 
 export const query = graphql`
   query {

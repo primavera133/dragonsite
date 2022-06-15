@@ -6,7 +6,12 @@ import { Header } from './Header'
 
 import './layout.css'
 
-export const LayoutOne = ({ head, left, right, children }) => {
+type LayoutOneProps = {
+  head?: JSX.Element
+  children?: JSX.Element[]
+}
+
+export const LayoutOne = ({ head, children }: LayoutOneProps) => {
   const data = useStaticQuery(
     graphql`
       query {

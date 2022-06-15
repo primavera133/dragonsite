@@ -5,6 +5,15 @@ import Helmet from 'react-helmet'
 import './layout.css'
 import { Header } from './Header'
 
+type LayoutProps = {
+  head?: JSX.Element
+  left?: JSX.Element
+  right?: JSX.Element
+  children?: JSX.Element[]
+  footer?: JSX.Element
+  wrapperNamespace?: string
+}
+
 export const Layout = ({
   head,
   left,
@@ -12,7 +21,7 @@ export const Layout = ({
   children,
   footer,
   wrapperNamespace,
-}) => {
+}: LayoutProps) => {
   const data = useStaticQuery(
     graphql`
       query {

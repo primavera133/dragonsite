@@ -1,10 +1,11 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { PageProps, Link, graphql } from 'gatsby'
+import { SiteDataProps } from '../types/siteDataProps'
 import { getNamesList } from '../utils/getNamesList'
 import { Layout } from '../components/Layout'
 import { Search } from '../components/Search'
 
-export default ({ data }) => (
+const About: React.FC<PageProps<SiteDataProps>> = ({ data }) => (
   <Layout
     head={
       <>
@@ -39,10 +40,11 @@ export default ({ data }) => (
     <p>These are all excellent books, go get them if you don't have them.</p>
     <h2>Contribute</h2>
     <p>
-      This is a work in continuous progress. Help with proof-reading and editing descriptions is appreciated.
-      Finding good images is also something I would appreciate help with. All images need to have usable licenses, Creative Commons or equivalent.
-      
-      If you would like to contribute, please contact jonas@myrenas.se.
+      This is a work in continuous progress. Help with proof-reading and editing
+      descriptions is appreciated. Finding good images is also something I would
+      appreciate help with. All images need to have usable licenses, Creative
+      Commons or equivalent. If you would like to contribute, please contact
+      jonas@myrenas.se.
     </p>
   </Layout>
 )
@@ -63,3 +65,4 @@ export const query = graphql`
     }
   }
 `
+export default About
