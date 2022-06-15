@@ -1,5 +1,6 @@
-import { Specie } from './specie'
+import { Specie, Taxonomy } from './gql-types'
 
 export type Dragonflies = {
-    species: Specie[]
+  species: Specie[]
+  taxonomy: Taxonomy
 }
