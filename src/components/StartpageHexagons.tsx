@@ -2,7 +2,16 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { StartpageHexagon } from './StartpageHexagon'
 
-const species = [
+export type HexagonImage = {
+  items_id: number
+  images: {
+    large: string
+  }
+  message: string
+  link?: string
+}
+
+const species: HexagonImage[] = [
   {
     items_id: 1,
     images: {

@@ -1,6 +1,11 @@
 import styled from '@emotion/styled'
 import React from 'react'
+import { Meta } from '../types/gql-types'
 import { TaxonMap } from './TaxonMap'
+
+type DistributionMapProps = {
+  meta: Meta[]
+}
 
 const DistributionMapContainer = styled.div`
   width: 100%;
@@ -23,12 +28,12 @@ const Figcap = styled.figcaption`
   font-size: 0.7rem;
 `
 
-const getTaxonKey = (meta) => {
+const getTaxonKey = (meta: Meta[]): string | null => {
   const key = meta.find((m) => m.label === 'gbifTaxonKey')
   return key ? key.value : null
 }
 
-export const DistributionMap = ({ meta }) => {
+export const DistributionMap: React.FC<DistributionMapProps> = ({ meta }) => {
   const taxonKey = getTaxonKey(meta)
   return taxonKey ? (
     <Fig>

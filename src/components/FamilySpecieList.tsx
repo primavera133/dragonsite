@@ -1,7 +1,14 @@
 import React from 'react'
+import { Specie } from '../types/gql-types'
 import { ListLink } from './ListLink'
 
-export const FamilySpecieList = ({ species }) => (
+type FamilySpecieListProps = {
+  species: Specie[]
+}
+
+export const FamilySpecieList: React.FC<FamilySpecieListProps> = ({
+  species,
+}) => (
   <ul>
     {species.map((specie, idx) => (
       <ListLink to={`/species/${specie.scientific_name}`} key={`specie_${idx}`}>

@@ -1,9 +1,13 @@
-import React  from 'react'
-import styled from '@emotion/styled'
+import React from 'react'
+import styled, { StyledComponent } from '@emotion/styled'
 import { useSpring, animated, to } from 'react-spring'
 import useMeasure from 'react-use-measure'
 import useMediaQuery from '../utils/hooks/useMediaQuery'
 import { ResizeObserver } from '@juggle/resize-observer'
+
+type StartPageMessageProps = {
+  children: JSX.Element | string
+}
 
 const MessageStyle = `
 position: absolute;
@@ -39,9 +43,15 @@ const AnimatedMessage = styled(animated.div)`
   ${MessageStyle}
 `
 
-export const StartpageMessage = ({ children }) => {
-  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
-  const Elem = prefersReducedMotion ? Message : AnimatedMessage
+export const StartpageMessage: React.FC<StartPageMessageProps> = ({
+  children,
+}) => {
+  const prefersReducedMotion: boolean = useMediaQuery(
+    '(prefers-reduced-motion: reduce)'
+  )
+  const Elem: StyledComponent<any> = prefersReducedMotion
+    ? Message
+    : AnimatedMessage
   const [cardRef, { width: cardWidth, height: cardHeight }] = useMeasure({
     polyfill: ResizeObserver,
   })

@@ -1,6 +1,13 @@
 import React from 'react'
+import { Link } from '../types/gql-types'
 
-export const MediaLinks = ({ pageContext }) => {
+type MediaLinksProps = {
+  pageContext: {
+    links: Link[]
+  }
+}
+
+export const MediaLinks: React.FC<MediaLinksProps> = ({ pageContext }) => {
   return (
     (pageContext.links && (
       <div>

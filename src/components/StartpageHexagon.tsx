@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { StartpageMessage } from './StartpageMessage'
+import { HexagonImage } from './StartPageHexagons'
 
 const HexItem = styled.li`
   position: relative;
@@ -116,8 +117,17 @@ const HexImg = styled.div`
     transition: opacity 0.5s;
   }
 `
+type StartpageHexagonProps = {
+  images: HexagonImage['images']
+  link?: HexagonImage['link']
+  message: HexagonImage['message']
+}
 
-export const StartpageHexagon = ({ images, link, message }) => {
+export const StartpageHexagon: React.FC<StartpageHexagonProps> = ({
+  images,
+  link,
+  message,
+}) => {
   const imgUrl = images.large
 
   return (

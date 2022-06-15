@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+type DefinitionProps = {
+  children: string
+}
+
 const DD = styled.dd`
   flex: 0 1 auto;
   margin: 0;
@@ -10,4 +14,6 @@ const DD = styled.dd`
   align-items: center;
 `
 
-export const Definition = ({ children }) => <DD>{children}</DD>
+export const Definition: React.FC<DefinitionProps> = ({ children }) => (
+  <DD>{children}</DD>
+)

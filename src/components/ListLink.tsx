@@ -2,6 +2,12 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
+type ListLinkProps = {
+  inline?: boolean
+  to: string
+  children: string
+}
+
 const Li = styled.li`
   display: list-item;
   list-style: circle;
@@ -14,17 +20,21 @@ const LiInline = styled(Li)`
   }
 `
 
-export const ListLink = (props) => {
-  if (props.inline) {
+export const ListLink: React.FC<ListLinkProps> = ({
+  inline = false,
+  to,
+  children,
+}) => {
+  if (inline) {
     return (
       <LiInline>
-        <Link to={props.to}>{props.children}</Link>
+        <Link to={to}>{children}</Link>
       </LiInline>
     )
   } else {
     return (
       <Li>
-        <Link to={props.to}>{props.children}</Link>
+        <Link to={to}>{children}</Link>
       </Li>
     )
   }

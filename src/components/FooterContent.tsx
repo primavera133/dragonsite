@@ -1,6 +1,13 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Markdown } from 'react-showdown'
+import { Maybe, Scalars } from '../types/gql-types'
+
+type FooterContentProps = {
+  pageContext: {
+    sources: Maybe<Array<Maybe<Scalars['String']>>>
+  }
+}
 
 const FC = styled.footer`
   font-size: 0.8rem;
@@ -12,7 +19,9 @@ const FC = styled.footer`
   }
 `
 
-export const FooterContent = ({ pageContext }) => {
+export const FooterContent: React.FC<FooterContentProps> = ({
+  pageContext,
+}) => {
   return (
     <FC>
       <h4>Sources</h4>
@@ -20,7 +29,7 @@ export const FooterContent = ({ pageContext }) => {
         <ul>
           {pageContext.sources.map((source, idx) => (
             <li key={`footer_${idx}`}>
-              <Markdown markup={source} />
+              <Markdown markdown={source} />
             </li>
           ))}
         </ul>

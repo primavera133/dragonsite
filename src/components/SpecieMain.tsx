@@ -2,6 +2,14 @@ import React from 'react'
 import styled from '@emotion/styled'
 import cloudinary from 'cloudinary-core'
 import { License } from './License'
+import { Images } from '../types/gql-types'
+
+type SpecieMainProps = {
+  pageContext: {
+    images: Images
+    scientific_name: string
+  }
+}
 
 const SpecieMainFigure = styled.figure`
   img {
@@ -22,11 +30,11 @@ const Caption = styled.div`
 `
 const SubCaption = styled.div``
 
-export const SpecieMain = ({ pageContext }) => {
+export const SpecieMain: React.FC<SpecieMainProps> = ({ pageContext }) => {
   const { images } = pageContext
   const mainImage = images ? images.all[0] : null
   if (!mainImage) {
-    return null;
+    return null
   }
 
   const cl = new cloudinary.Cloudinary({

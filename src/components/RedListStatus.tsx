@@ -1,10 +1,19 @@
 import React from 'react'
-import { DefinitionList } from '../components/DefinitionList'
-import { DefinitionItem } from '../components/DefinitionItem'
-import { Topic } from '../components/Topic'
-import { Definition } from '../components/Definition'
+import { DefinitionList } from './DefinitionList'
+import { DefinitionItem } from './DefinitionItem'
+import { Topic } from './Topic'
+import { Definition } from './Definition'
+import { RedList } from '../types/gql-types'
 
-export const RedListStatus = ({ pageContext }) => {
+type RedListStatusProps = {
+  pageContext: {
+    red_list: RedList
+  }
+}
+
+export const RedListStatus: React.FC<RedListStatusProps> = ({
+  pageContext,
+}) => {
   return (
     <>
       <h2>Red list status</h2>

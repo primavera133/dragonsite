@@ -1,6 +1,14 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+type SpecieNamesProps = {
+  pageContext: {
+    scientific_name: string
+    author_citation: string
+    local_names: string[]
+  }
+}
+
 const SpecieNamesWrapper = styled.div`
   margin: 0 0 1rem;
 `
@@ -25,7 +33,7 @@ const H3 = styled.h3`
   }
 `
 
-export const SpecieNames = ({ pageContext }) => {
+export const SpecieNames: React.FC<SpecieNamesProps> = ({ pageContext }) => {
   return (
     <SpecieNamesWrapper>
       <H1>{pageContext.scientific_name}</H1>

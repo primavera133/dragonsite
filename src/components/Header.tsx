@@ -4,6 +4,11 @@ import { Link } from 'gatsby'
 import { ListLink } from './ListLink'
 import { LogoHexagon } from './LogoHexagon'
 
+type HeaderProps = {
+  title: string
+  children: JSX.Element | JSX.Element[]
+}
+
 const HeaderOuter = styled.header`
   grid-area: header;
   margin-bottom: 1.5rem;
@@ -102,7 +107,7 @@ const MenuList = styled.ul`
   }
 `
 
-export const Header = ({ title, children }) => {
+export const Header: React.FC<HeaderProps> = ({ title, children }) => {
   return (
     <HeaderOuter>
       <HeaderWrapper>

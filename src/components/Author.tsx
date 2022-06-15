@@ -1,7 +1,14 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const Author = ({ isModal, ...props }) => {
+type AuthorProps = {
+  href: string
+  target: string | null
+  rel: string
+  isModal: boolean
+}
+
+export const Author: React.FC<AuthorProps> = ({ isModal, ...props }) => {
   const Tag = props.href
     ? styled.a`
         color: ${isModal ? 'white' : 'inherit'};

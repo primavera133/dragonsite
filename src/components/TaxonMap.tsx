@@ -3,8 +3,15 @@ import React, { useState, useEffect } from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { isDomAvailable } from '../utils/isDomAvailable'
 
-export const TaxonMap = ({ taxonKey }) => {
-  const [bounds, setBounds] = useState()
+type TaxonMapProps = {
+  taxonKey: string | null
+}
+
+type Lats = [number, number]
+type Bounds = [Lats, Lats]
+
+export const TaxonMap: React.FC<TaxonMapProps> = ({ taxonKey }) => {
+  const [bounds, setBounds] = useState<Bounds>()
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -43,7 +50,7 @@ export const TaxonMap = ({ taxonKey }) => {
     right: 0;
   `
 
-  const joinParams = (params) =>
+  const joinParams = (params): string =>
     Object.keys(params)
       .map((param) => `${param}=${params[param]}`)
       .join('&')

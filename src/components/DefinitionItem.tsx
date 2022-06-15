@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+type DefinitionItemProps = {
+  children: JSX.Element | JSX.Element[]
+}
+
 const DI = styled.div`
   display: flex;
   margin: 0.5rem 0;
@@ -14,4 +18,6 @@ const DI = styled.div`
   }
 `
 
-export const DefinitionItem = ({ children }) => <DI>{children}</DI>
+export const DefinitionItem: React.FC<DefinitionItemProps> = ({ children }) => (
+  <DI>{children}</DI>
+)
